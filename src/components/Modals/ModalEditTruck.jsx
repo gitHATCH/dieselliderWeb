@@ -45,7 +45,7 @@ const ModalEditTruck = ({editActual}) => {
         }));
     };
     const handleCisternChange = (event) => {
-        console.log("Modificar cisterna");
+        //console.log("Modificar cisterna");
     };
 
     const cancelOption = () => {
@@ -55,7 +55,7 @@ const ModalEditTruck = ({editActual}) => {
         if(!modalAdd){
             editActual(truck)
         }else{
-            console.log(truck);
+            //console.log(truck);
             if(!truck.patente || !truck.descripcion || !truck.cisternas.length > 0){
                 toast.error("Todos los campos son obligatorios")
                 return

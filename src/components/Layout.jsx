@@ -17,17 +17,17 @@ import { AuthContext } from '../hooks/AuthContext';
 const Layout = ({children}) => {
   const [collaps] = useContext(SlidebarContext)
   const {auth, loading} = useContext(AuthContext);
-  console.log(auth);
+  //console.log(auth);
   return (
     <>
       {!loading && (
           <>
             <div className='flex flex-col h-screen w-full'>
-              
-              <div className={`w-full h-1/9`}>
-                <SidebarLayout/>
-              </div>
-            
+              {auth && (
+                <div className={`w-full h-1/9 `}>
+                  <SidebarLayout/>
+                </div>
+              )}
               <div className={`w-full h-full overflow-y-auto`}>
                 {children}
               </div>

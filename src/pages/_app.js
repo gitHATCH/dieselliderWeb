@@ -1,6 +1,7 @@
 /* Construccion inicial de la APP */
 import { useState, useEffect } from 'react';
 import '../styles/globals.css'
+import 'semantic-ui-css/semantic.min.css'
 import Layout from '../components/Layout';
 import { SlidebarProvider } from '../hooks/SlidebarContext';
 import { ToastContainer } from 'react-toastify';

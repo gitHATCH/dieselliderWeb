@@ -29,6 +29,38 @@ p,h1,h2,h3,h4,h5,h6 {
 .formLogin .formInput {
   background-color: var(--white);
 }
+.formLogin .forgot {
+  color: var(--blue);
+}
+.formLogin .forgot:hover {
+  color: var(--secondary);
+  cursor: pointer;
+}
+
+.header {
+  background-color: var(--blue);
+}
+.btnMenu{
+  color: white;
+}
+.btnMenu:hover{
+  color: var(--secondary);
+}
+.btnMenuActive{
+  color: var(--secondary);
+}
+.custom-tooltip {
+  background-color: transparent !important; 
+  box-shadow: none !important; 
+}
+.btnMenuOption:hover {
+  background-color: #1a4c57;
+}
+
+.menuHeader {
+  background-color: var(--secondary);
+  opacity: 70%;
+}
 
 .sidebar{
 

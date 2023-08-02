@@ -86,7 +86,7 @@ const ModalEditOrder = ({editActual}) => {
         handleModalEdit()
     }
     const confirmOption = () => {
-        console.log(order);
+        //console.log(order);
         if(!modalAdd){
             editActual(order)
         }else{

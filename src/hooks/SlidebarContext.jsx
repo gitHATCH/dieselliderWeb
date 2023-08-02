@@ -17,7 +17,6 @@ const SlidebarProvider = (props) => {
     useEffect(() => {
       actualPage !== router.pathname ? setActualPage(router.pathname) : null
     }, [router.pathname])
-    
    
     const handleCollaps = (state) => {
         setCollaps(state)

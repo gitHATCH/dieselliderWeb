@@ -31,7 +31,7 @@ export default function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(typeId,userId,password);
+    //console.log(typeId,userId,password);
     if(typeId === "" || userId  === "" || password  === ""){
       toast.error("Todos los campos son obligatorios")
       return
@@ -47,7 +47,7 @@ export default function Login() {
   return (
     <>
       <div className='flex h-full w-full items-center justify-center'>
-        <div className='p-10 rounded-2xl w-1/3 formLogin shadow-xl shadow-black'>
+        <div className='md:p-5 2xl:p-10 rounded-2xl w-1/3 formLogin shadow-xl shadow-black'>
           <div className='flex justify-center'>
             <Image
               src={Logo}
@@ -56,8 +56,8 @@ export default function Login() {
               alt='Diesel Lider Logo'
             />
           </div>  
-          <h1 className='text-center text-5xl font-semibold tracking-widest mt-10'>Iniciar Sesión</h1>
-          <form className='mt-10' onSubmit={handleSubmit}>
+          <h1 className='text-center md:text-3xl 2xl:text-5xl font-semibold tracking-widest md:mt-5 2xl:mt-10'>Iniciar Sesión</h1>
+          <form className='md:mt-5 2xl:mt-10' onSubmit={handleSubmit}>
             <Box sx={{ minWidth: 120}}>
               <div className='formInput'>
                 <FormControl fullWidth>
@@ -65,7 +65,7 @@ export default function Login() {
                   <Select
                     labelId="identificacion"
                     label="Tipo de Identificación"
-                    value={typeId}
+                    va  lue={typeId}
                     onChange={handleChangeType} 
                   >
                     <MenuItem value={"C.U.I.T."}>C.U.I.T.</MenuItem>
@@ -106,6 +106,7 @@ export default function Login() {
                     label="Contraseña"
                   />
                 </FormControl>
+                <p className='forgot text-xs font-medium'>Olvidé mi contraseña</p>
               </div>
             
             </Box>
@@ -115,10 +116,9 @@ export default function Login() {
               variant="contained" 
               style={{marginTop:40, height:50, backgroundColor:"#1c5560"}} 
               onClick={handleSubmit}
-              >
+            >
                 <p className='text-xl font-semibold'>Iniciar Sesión</p>
             </Button>
-            
           </form>
         </div>
       </div>
