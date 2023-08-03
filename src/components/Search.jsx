@@ -11,7 +11,7 @@ const Search = () => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder='Código DL o Número de parte'
-              className='focus:outline-none p-3 text-lg rounded-xl shadow-md shadow-inner shadow-black pl-12 w-full bg-slate-200'
+              className='focus:outline-none p-3 text-lg 2xl:text-3xl rounded-xl shadow-md shadow-inner shadow-black pl-12 w-full bg-slate-200'
             />
             <div className='absolute left-2 top-1/2 transform -translate-y-1/2 hover:bg-gray-200 rounded-full'>
               <SearchIcon style={{ fontSize: 30 }} />

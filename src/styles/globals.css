@@ -59,7 +59,7 @@ p,h1,h2,h3,h4,h5,h6 {
 
 .menuHeader {
   background-color: var(--secondary);
-  opacity: 70%;
+  opacity: 80%;
 }
 
 .sidebar{

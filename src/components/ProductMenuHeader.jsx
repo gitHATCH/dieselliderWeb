@@ -23,7 +23,8 @@ export default function ProductMenuHeader() {
   ];
 
   return (
-    <div className='menuHeader'>
+    <div className='2xl:items-center 2xl:justify-center flex 2xl:mt-0'>
+    <div className='menuHeader 2xl:rounded-b-3xl 2xl:px-20 2xl:shadow-lg 2xl:shadow-black 2xl:border-t-8 2xl:border-black'>
       <Menu pointing secondary>
         {menuItems.map((item) => (
           <Menu.Item
@@ -31,10 +32,13 @@ export default function ProductMenuHeader() {
             name={item.name}
             active={page === item.path}
             onClick={(e) => handleItemClick(e, item)}
-            style={{ color: 'white' }}
+            style={{ color: page === item.path ? '#001f36' : 'white',borderBottom: page === item.path ? '4px solid #001f36' : '2px solid transparent' }}
+            className='2xl:text-3xl'
+            
           />
         ))}
       </Menu>
+    </div>
     </div>
   );
 

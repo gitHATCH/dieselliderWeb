@@ -47,17 +47,29 @@ export default function Login() {
   return (
     <>
       <div className='flex h-full w-full items-center justify-center'>
-        <div className='md:p-5 2xl:p-10 rounded-2xl w-1/3 formLogin shadow-xl shadow-black'>
+        <div className='md:p-5 2xl:p-12 rounded-2xl w-1/3 formLogin 2xl:bg-slate-100 shadow-xl shadow-black'>
           <div className='flex justify-center'>
-            <Image
-              src={Logo}
-              width={100}
-              height={100}
-              alt='Diesel Lider Logo'
-            />
+            <div className='2xl:hidden'>
+              <Image
+                src={Logo}
+                width={100}
+                height={100}
+                alt='Diesel Lider Logo'
+              />
+            </div>
+            {/* 2xl Resolution */}
+            <div className='hidden 2xl:block'>
+              <Image
+                src={Logo}
+                width={200}
+                height={200}
+                alt='Diesel Lider Logo'
+              />
+            </div>
+            
           </div>  
-          <h1 className='text-center md:text-3xl 2xl:text-5xl font-semibold tracking-widest md:mt-5 2xl:mt-10'>Iniciar Sesión</h1>
-          <form className='md:mt-5 2xl:mt-10' onSubmit={handleSubmit}>
+          <h1 className='text-center md:text-3xl 2xl:text-6xl md:font-semibold tracking-widest md:mt-5 2xl:mt-10'>Iniciar Sesión</h1>
+          <form className='md:mt-5 2xl:mt-20' onSubmit={handleSubmit}>
             <Box sx={{ minWidth: 120}}>
               <div className='formInput'>
                 <FormControl fullWidth>
@@ -65,7 +77,7 @@ export default function Login() {
                   <Select
                     labelId="identificacion"
                     label="Tipo de Identificación"
-                    va  lue={typeId}
+                    value={typeId}
                     onChange={handleChangeType} 
                   >
                     <MenuItem value={"C.U.I.T."}>C.U.I.T.</MenuItem>
@@ -99,26 +111,34 @@ export default function Login() {
                           onClick={handleClickShowPassword}
                           onMouseDown={handleMouseDownPassword}
                           edge="end"
+                          style={{marginRight:"2px"}}
                         >
                           {showPassword ? <VisibilityOff /> : <Visibility />}
                         </IconButton>
                     }
                     label="Contraseña"
+                    
                   />
                 </FormControl>
-                <p className='forgot text-xs font-medium'>Olvidé mi contraseña</p>
+              </div>
+              <div className='flex 2xl:mt-2'>
+                <p className='forgot text-xs 2xl:text-lg font-medium'>Olvidé mi contraseña</p>
               </div>
             
             </Box>
+           
+              <Button 
+                fullWidth 
+                variant="contained" 
+                style={{marginTop:40, backgroundColor:"#1c5560", display: 'flex', justifyContent: 'center', alignItems: 'center'}}
+                onClick={handleSubmit}
+              >
+                <div className='2xl:h-12 flex items-center'>
+                  <p className='text-xl 2xl:text-3xl font-semibold'>Iniciar Sesion</p>
+                </div>
+              </Button>
+          
             
-            <Button 
-              fullWidth 
-              variant="contained" 
-              style={{marginTop:40, height:50, backgroundColor:"#1c5560"}} 
-              onClick={handleSubmit}
-            >
-                <p className='text-xl font-semibold'>Iniciar Sesión</p>
-            </Button>
           </form>
         </div>
       </div>
