@@ -96,12 +96,12 @@ p,h1,h2,h3,h4,h5,h6 {
   font-size: 2rem;
 }
 
-.slidebar-metamask {
+.Header-metamask {
   margin-left: 30%;
   width: 20px;
   height: 20px;
 }
-.slidebar-metamask-close {
+.Header-metamask-close {
   margin-left: 10%;
   width: 20px;
   height: 20px;

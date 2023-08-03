@@ -1,12 +1,12 @@
-/* Contexto del Slidebar */
+/* Contexto del Header */
 
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 
 
-const SlidebarContext = React.createContext([{}, ()=>{}])
+const HeaderContext = React.createContext([{}, ()=>{}])
 
-const SlidebarProvider = (props) => {
+const HeaderProvider = (props) => {
     const [collaps, setCollaps] = useState(true)
     const [showStatus, setShowStatus] = useState(false)
     const [modal, setModal] = useState(false)
@@ -39,10 +39,10 @@ const SlidebarProvider = (props) => {
     }
 
     return (
-        <SlidebarContext.Provider value={[collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modal, handleOpenModal, handleCloseModal]}>
+        <HeaderContext.Provider value={[collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modal, handleOpenModal, handleCloseModal]}>
             {props.children}
-        </SlidebarContext.Provider>
+        </HeaderContext.Provider>
     )      
 }
 
-export {SlidebarContext, SlidebarProvider}
+export {HeaderContext, HeaderProvider}

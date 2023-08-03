@@ -4,8 +4,8 @@ import SearchIcon from '@mui/icons-material/Search';
 const Search = () => {
     const [searchTerm, setSearchTerm] = useState('');
     return (
-        <div className='flex justify-center mt-10'>
-          <div className='relative w-1/3'>
+        <div className='flex justify-center w-full items-center'>
+          <div className='relative w-full'>
             <input
               type='text'
               value={searchTerm}

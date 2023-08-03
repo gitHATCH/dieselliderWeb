@@ -4,6 +4,7 @@ import { AuthContext } from '../hooks/AuthContext';
 import Login from '../components/Login';
 import ProductsLayout from '../components/ProductsLayout';
 import Search from '../components/Search';
+import Products from '../components/Products';
 
 export default function Home() {
   const {loading,auth} = useContext(AuthContext);
@@ -13,7 +14,8 @@ export default function Home() {
       {!loading && (
         !auth ? <Login/> : (
           <>
-            <Search/>
+            
+            <Products/>
           </>
         )
       )}

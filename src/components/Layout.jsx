@@ -1,7 +1,7 @@
-/* Layout que divide entre slidebar y contenido */
+/* Layout que divide entre Header y contenido */
 import React, { useContext } from 'react'
 import SidebarLayout from './SidebarLayout'
-import { SlidebarContext } from '../hooks/SlidebarContext'
+import { HeaderContext } from '../hooks/HeaderContext'
 
 
 
@@ -15,7 +15,7 @@ import { AuthContext } from '../hooks/AuthContext';
 
 
 const Layout = ({children}) => {
-  const [collaps] = useContext(SlidebarContext)
+  const [collaps] = useContext(HeaderContext)
   const {auth, loading} = useContext(AuthContext);
   //console.log(auth);
   return (

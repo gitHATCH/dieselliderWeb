@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from 'react'
 import ProductMenuHeader from './ProductMenuHeader'
-import { SlidebarContext } from '../hooks/SlidebarContext'
+import { HeaderContext } from '../hooks/HeaderContext'
 import { useRouter } from 'next/router'
 const ProductsLayout = ({children}) => {
-  const [collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modal, handleOpenModal] = useContext(SlidebarContext)
+  const [collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modal, handleOpenModal] = useContext(HeaderContext)
   const router = useRouter()
   const handlePage = () => {
     const page = router.pathname.split("/")[1]

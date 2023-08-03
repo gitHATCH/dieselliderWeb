@@ -9,7 +9,7 @@ import Link from 'next/link';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-import { SlidebarContext } from '../hooks/SlidebarContext';
+import { HeaderContext } from '../hooks/HeaderContext';
 import { ModalContext } from '../hooks/ModalContext';
 import ModalLogOut from './Modals/ModalLogOut';
 import { AuthContext } from '../hooks/AuthContext';
@@ -29,7 +29,7 @@ import ProductMenuHeader from './ProductMenuHeader';
 //Comprobar autorizar
 
 const SidebarLayout = () => {
-    const [collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modal, handleOpenModal] = useContext(SlidebarContext)
+    const [collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modal, handleOpenModal] = useContext(HeaderContext)
     const [modalDelete, modalEdit, handleModalDelete, handleModalEdit, handleModalLogOut, modalLogOut] = useContext(ModalContext)
     const {auth} = useContext(AuthContext);
     const router = useRouter()
@@ -50,7 +50,7 @@ const SidebarLayout = () => {
             <>
                 <div className='shadow-md shadow-black header'>
                     <div position="static">
-                        <div className='p-2 2xl:p-5 2xl:ml-10'>
+                        <div className='p-2 px-6 2xl:p-5 2xl:ml-10'>
                                 <div className='flex items-center w-full'>
                                     
                                     {/* 2xl Resolution */}
@@ -67,7 +67,7 @@ const SidebarLayout = () => {
                                         <Image
                                             src={Logo}
                                             width={180}
-                                            height={100}
+                                            height={110}
                                             alt='Diesel Lider Logo'
                                         />
                                     </div>
