@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Box, Button, FormControl, IconButton, InputLabel, MenuItem, OutlinedInput, Select, TextField } from '@mui/material';
+import { Box, Button, FormControl, FormControlLabel, FormLabel, IconButton, InputLabel, MenuItem, OutlinedInput, Radio, RadioGroup, Select, TextField } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
 import Logo from "../assets/images/DLCircle.png"
 import { useState } from 'react';
@@ -22,32 +22,52 @@ export default function Products() {
   return (
     <div className='flex justify-center px-80 mt-10'>
         <div className='flex justify-center w-full bg-slate-200 rounded-xl shadow-xl shadow-black'>
-        <form className='md:mt-5 2xl:mt-20 w-full p-10' onSubmit={handleSubmit}>
+        <form className='md:mt-0 2xl:mt-20 w-full p-10' onSubmit={handleSubmit}>
             <Box sx={{ minWidth: 120}}>
-                <div className='flex justify-center '>
-                    <div className='formInput w-1/3'>
-                        <FormControl fullWidth>
-                        <InputLabel id="tipoBusqueda">Tipo de Búsqueda</InputLabel>
-                        <Select
-                            labelId="tipoBusqueda"
-                            label="Tipo de Búsqueda"
-                            value={typeSearch}
-                            onChange={handleChangeType} 
-                        >
-                            <MenuItem value={0}>Código DL o Número de Parte</MenuItem>
-                            <MenuItem value={1}>Marca y Número de Parte</MenuItem>
-                            <MenuItem value={2}>Descripción</MenuItem>
-                        </Select>
-                        </FormControl>
+                <div className='flex justify-center flex-col'>
+                    <div className='flex flex-row w-full'>
+                        <div className='formInput mb-10 w-2/3'>
+                            <FormControl>
+                            <FormLabel id="demo-controlled-radio-buttons-group">Tipo de Búsqueda</FormLabel>
+                            <RadioGroup
+                                aria-labelledby="demo-controlled-radio-buttons-group"
+                                name="controlled-radio-buttons-group"
+                                value={typeSearch}
+                                onChange={handleChangeType}
+                            >
+                                <FormControlLabel value={0} control={<Radio />} label="Código DL o Número de Parte" />
+                                <FormControlLabel value={1} control={<Radio />} label="Número de Parte con Formato" />
+                                <FormControlLabel value={2} control={<Radio />} label="Descripción del Artículo" />
+                            </RadioGroup>
+                            </FormControl>
+                        </div>
+                        <div className='w-full mt-5'>
+                            {typeSearch == 0 && <ProductCodeForm/>}
+                            {typeSearch == 1 && <ProductPartNumberForm/>}
+                            {typeSearch == 2 && <ProductDescForm/>}
+                        </div>
                     </div>
+                    <div className='flex justify-center'>
+                        <div className='btnSearch mt-5 hover:opacity-90 w-1/2'>
+                            <Button
+                                fullWidth 
+                                variant="contained"
+                                style={{backgroundColor:"transparent", fontSize:15, fontWeight:"bold"}}
+                                onClick={handleSubmit}
+                            >
+                                <div className='2xl:h-12 flex items-center'>
+                                <p className='text-lg 2xl:text-3xl font-semibold'>Buscar</p>
+                                </div>
+                            </Button>
+                        </div>
+                    </div>
+                    
+                    
                 </div>
+                
+                
                 <div className='flex justify-center mt-10'>
                     <hr className='border-1 border-black opacity-40 w-1/2' />
-                </div>
-                <div className='mt-10'>
-                    {typeSearch == 0 && <ProductCodeForm/>}
-                    {typeSearch == 1 && <ProductPartNumberForm/>}
-                    {typeSearch == 2 && <ProductDescForm/>}
                 </div>
             </Box>
            

@@ -1,13 +1,15 @@
-import { FormControlLabel, TextField } from '@mui/material'
+import { Button, FormControlLabel, TextField, Tooltip } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox';
 import React from 'react'
 import { useState } from 'react';
+import { toast } from 'react-toastify';
 
 const ProductCodeForm = () => {
 
   const [code, setCode] = useState("");
   const [checkedDL, setCheckedDL] = useState(false);
   const [checkedCoincidences, setCheckedCoincidences] = useState(false);
+
     const handleChangeCode = (event) => {
         setCode(event.target.value);
     };
@@ -17,10 +19,16 @@ const ProductCodeForm = () => {
     const handleChangeCheckedDL = (event) => {
       setCheckedDL(!checkedDL);
     };
+    const handleSearchByCode = (e) => {
+      e.preventDefault()
+      if(!code){
+        toast.error("El código DL o el número de parte es obligatorio")
+      }
+    }
 
   return (
     <div className='w-full flex justify-center'>
-      <div className='w-1/2'>
+      <form className='w-full' onSubmit={handleSearchByCode}>
         <div className='formInput'>
           <TextField 
             fullWidth 
@@ -42,6 +50,7 @@ const ProductCodeForm = () => {
             } 
             label="Solo Códigos DL" 
           />
+          
           <FormControlLabel 
             control={
               <Checkbox 
@@ -53,7 +62,8 @@ const ProductCodeForm = () => {
             label="Buscar coincidencias" 
           />
         </div>
-      </div>  
+            
+      </form>  
   </div>
   )
 }

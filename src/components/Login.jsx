@@ -44,6 +44,14 @@ export default function Login() {
     
   };
 
+  const suma = (arreglo) => {
+    let sumas = arreglo.forEach(element =>  {suma + element});
+    return sumas
+  }
+
+  console.log("gola");
+  console.log(suma([1,2,3,4]));
+
   return (
     <>
       <div className='flex h-full w-full items-center justify-center'>
@@ -133,7 +141,7 @@ export default function Login() {
                 style={{marginTop:40, backgroundColor:"#1c5560", display: 'flex', justifyContent: 'center', alignItems: 'center'}}
                 onClick={handleSubmit}
               >
-                <div className='2xl:h-12 flex items-center'>
+                <div className='2xl:h-12 flex items-center '>           
                   <p className='text-xl 2xl:text-3xl font-semibold'>Iniciar Sesion</p>
                 </div>
               </Button>

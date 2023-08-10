@@ -25,7 +25,7 @@ const ProductPartNumberForm = () => {
 
   return (
     <div className='w-full flex justify-center'>
-      <div className='w-1/2'>
+      <div className='w-full'>
         <div className='formInput'>
           <FormControl fullWidth>
             <InputLabel id="brand">Marca</InputLabel>

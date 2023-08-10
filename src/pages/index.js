@@ -14,7 +14,6 @@ export default function Home() {
       {!loading && (
         !auth ? <Login/> : (
           <>
-            
             <Products/>
           </>
         )
