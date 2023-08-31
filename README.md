@@ -32,14 +32,12 @@ Las páginas o vistas principales que componen este proyecto son las siguientes:
 * pedido: Muestra la lista de productos seleccionados, el importe , datos de cuenta, de facturación y permite la confirmación del mismo.
 * contacto: Permite el contacto atraves de correo electrónico con la empresa.
 
-
-
 ### COMPONENTS
 
 Los componentes utilizados por las distintas páginas son los siguientes:
 
 * Layout: Divide la pantalla en header y contenido de manera responsive []
-* SidebarLayout: Header de la aplicación, que permite la navegación y la orientación del usuario []
+* HeaderLayout: Header de la aplicación, que permite la navegación y la orientación del usuario []
 * Login: Formulario de Inicio de sesión [root]
 * Products: Formulario para la búsqueda de productos en el catálogo. [root]
 * ProductMenuHeader: Subheader que permite la movilidad entre el catálogo, las novedades, ofertas y lista de precios de productos [SlidebarLayout]
@@ -62,6 +60,13 @@ Los assets utilizados en este proyecto son los siguientes:
 
 ### EXTERNAL PACKAGES
 
+* mui (styles)
+* heroicons (icons)
+* tailwindcss (styles)
+* axios (endpoints)
+* react-dom (routing)
+* react-toastify (notifications)
+* nextUI (styles)
 
 ### UTILIZACIÓN:
 
@@ -75,7 +80,5 @@ Los assets utilizados en este proyecto son los siguientes:
 `npm i`
 
 `npm run dev`
-
-
 
 ##### Estructura del proyecto:

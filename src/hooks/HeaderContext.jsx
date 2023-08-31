@@ -9,7 +9,7 @@ const HeaderContext = React.createContext([{}, ()=>{}])
 const HeaderProvider = (props) => {
     const [collaps, setCollaps] = useState(true)
     const [showStatus, setShowStatus] = useState(false)
-    const [modal, setModal] = useState(false)
+    const [modalUser, setModalUser] = useState(false)
     const [actualPage, setActualPage] = useState("")
     const router = useRouter()
 
@@ -30,16 +30,16 @@ const HeaderProvider = (props) => {
         setShowStatus(false)
     }
     
-    const handleOpenModal = () => {
-        setModal(true)
+    const handleOpenModalUser = () => {
+        setModalUser(true)
     }
    
-    const handleCloseModal = () => {
-        setModal(false)
+    const handleCloseModalUser = () => {
+        setModalUser(false)
     }
 
     return (
-        <HeaderContext.Provider value={[collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modal, handleOpenModal, handleCloseModal]}>
+        <HeaderContext.Provider value={[collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modalUser, handleOpenModalUser, handleCloseModalUser]}>
             {props.children}
         </HeaderContext.Provider>
     )      

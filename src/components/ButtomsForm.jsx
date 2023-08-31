@@ -4,7 +4,6 @@ import { ProposalContext } from '../hooks/ProposalContext'
 
 
 const ButtomsForm = () => {
-    const [selectCall, call, loadProposals, proposals, removeProposal, registerProposals, verifyProposals] = useContext(ProposalContext)
 
   return (
     <div className='flex justify-center'>

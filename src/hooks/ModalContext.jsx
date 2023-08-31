@@ -4,34 +4,19 @@ import React, { useEffect, useState } from 'react'
 const ModalContext = React.createContext([{}, ()=>{}])
 
 const ModalProvider = (props) => {
-    const [modalDelete, setModalDelete] = useState(false)
-    const [modalEdit, setModalEdit] = useState(false)
-    const [modalAdd, setModalAdd] = useState(false)
     const [modalLogOut, setModalLogOut] = useState(false)
+    const [modalNotifications, setModalNotifications] = useState(false)
+
     const router = useRouter()
 
     useEffect(() => {
-        setModalDelete(false)
-        setModalEdit(false)
+        setModalNotifications(false)
         setModalLogOut(false)
       }, [router.pathname])
 
-    const handleModalDelete = () => {
-        setModalDelete(!modalDelete)
-    }
-    
-    const handleModalEdit = (agregar) => {
-        if(agregar){
-            setModalAdd(true)
-        }else{
-            setModalAdd(false)
-        }
-        setModalEdit(!modalEdit)
-
-    }
-
-    const handleModalAdd = () => {
-        setModalAdd(!modalAdd)
+   
+    const handleModalNotifications = () => {
+        setModalNotifications(!modalNotifications)
     }
 
     const handleModalLogOut = () => {
@@ -39,7 +24,7 @@ const ModalProvider = (props) => {
     }
     
     return (
-        <ModalContext.Provider value={[modalDelete, modalEdit, handleModalDelete, handleModalEdit, handleModalLogOut, modalLogOut, modalAdd, handleModalAdd]}>
+        <ModalContext.Provider value={{handleModalLogOut, modalLogOut,handleModalNotifications,modalNotifications}}>
             {props.children}
         </ModalContext.Provider>
     )      

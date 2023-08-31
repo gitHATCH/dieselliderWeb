@@ -17,6 +17,7 @@ function MyApp({ Component, pageProps }) {
   }, [])
 
   return paginaLista ? (
+    
     <AuthProvider>
       <ModalProvider>
           <HeaderProvider>

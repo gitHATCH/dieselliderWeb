@@ -44,13 +44,7 @@ export default function Login() {
     
   };
 
-  const suma = (arreglo) => {
-    let sumas = arreglo.forEach(element =>  {suma + element});
-    return sumas
-  }
-
-  console.log("gola");
-  console.log(suma([1,2,3,4]));
+ 
 
   return (
     <>
@@ -130,7 +124,7 @@ export default function Login() {
                 </FormControl>
               </div>
               <div className='flex 2xl:mt-2'>
-                <p className='forgot text-xs 2xl:text-lg font-medium'>Olvidé mi contraseña</p>
+                <p className='forgot text-md 2xl:text-lg font-medium opacity-80'>Olvidé mi contraseña</p>
               </div>
             
             </Box>

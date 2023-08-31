@@ -1,6 +1,6 @@
 /* Layout que divide entre Header y contenido */
 import React, { useContext } from 'react'
-import SidebarLayout from './SidebarLayout'
+import HeaderLayout from './HeaderLayout'
 import { HeaderContext } from '../hooks/HeaderContext'
 
 
@@ -25,7 +25,7 @@ const Layout = ({children}) => {
             <div className='flex flex-col h-screen w-full'>
               {auth && (
                 <div className={`w-full h-1/9 `}>
-                  <SidebarLayout/>
+                  <HeaderLayout/>
                 </div>
               )}
               <div className={`w-full h-full overflow-y-auto`}>

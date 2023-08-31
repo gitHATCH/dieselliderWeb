@@ -52,6 +52,7 @@ p,h1,h2,h3,h4,h5,h6 {
 .custom-tooltip {
   background-color: transparent !important; 
   box-shadow: none !important; 
+  
 }
 .btnMenuOption:hover {
   background-color: #1a4c57;
@@ -62,15 +63,28 @@ p,h1,h2,h3,h4,h5,h6 {
   opacity: 80%;
 }
 
+.bg-prim {
+  background-color: var(--primary);
+}
+.bg-sec {
+  background-color: var(--secondary);
+}
+.bg-blue {
+  background-color: var(--blue);
+}
+.bg-black {
+  background-color: var(--black);
+}
+
 
 .btnSearch {
   background-color: var(--secondary);
 }
 
-.sidebar{
+.Header{
 
 }
-.sidebar .home {
+.Header .home {
   background-color: var(--blue);
 }
 
