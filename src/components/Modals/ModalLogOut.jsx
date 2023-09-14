@@ -62,7 +62,7 @@ const ModalLogOut = () => {
         }}
     >
         <Fade in={modalLogOut}>
-            <Box sx={style} className="rounded-xl bg-blue">
+            <Box sx={style} className="rounded-xl bg-black">
                 <div className='flex'>
                 <div className='flex-1 flex-col'>
                     <Typography id="transition-modal-title" className='text-slate-300 font-mono font-semibold' variant="h6" component="h2">

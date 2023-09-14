@@ -13,6 +13,8 @@ import { Button, FormControlLabel, TextField, ThemeProvider, Tooltip, createThem
 import Checkbox from '@mui/material/Checkbox';
 
 const ModalNotifications = () => {
+    //TODO: Change background circle -> color
+    
     const {modalNotifications,handleModalNotifications} = useContext(ModalContext);
     const {unAuthorize} = useContext(AuthContext);
     const [checkedNews, setCheckedNews] = useState(false);
@@ -85,7 +87,7 @@ const ModalNotifications = () => {
         }}
     >
         <Fade in={modalNotifications}>
-            <Box sx={style} className="rounded-xl bg-blue">
+            <Box sx={style} className="rounded-xl bg-black">
                 <div className='flex flex-col'>
                 <div className='flex justify-end'>
                     <CancelIcon className='text-red-600 hover:cursor-pointer hover:text-red-300 absolute' style={{fontSize:25}} onClick={handleModalNotifications}/>
@@ -99,7 +101,7 @@ const ModalNotifications = () => {
                     </div>
                     
                     <div className='flex w-full justify-center'>
-                        <form className='bg-slate-900 mt-10 p-14 rounded-full opacity-80'>
+                        <form className='bg-blue mt-10 p-14 rounded-full opacity-80'>
                             <div className='flex justify-left items-center content-center text-white'>
                                 <Tooltip title="Se ejecuta cada 15 días a las 20:00 hs." placement="right">
                                     <FormControlLabel

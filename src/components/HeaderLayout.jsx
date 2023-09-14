@@ -51,25 +51,27 @@ const HeaderLayout = () => {
                     <div position="static">
                         <div className='p-2 px-6 2xl:p-5 2xl:ml-10'>
                                 <div className='flex items-center w-full'>
+                                    <div className='hover:cursor-pointer' onClick={() => router.push("/")}>
+                                        {/* 2xl Resolution */}
+                                        <div className='hidden 2xl:block'>
+                                            <Image
+                                                src={Logo}
+                                                width={300}
+                                                height={170}
+                                                alt='Diesel Lider Logo'
+                                            />
+                                        </div>
+                                        {/* Other Resolution */}
+                                        <div className='2xl:hidden'>
+                                            <Image
+                                                src={Logo}
+                                                width={150}
+                                                height={80}
+                                                alt='Diesel Lider Logo'
+                                            />
+                                        </div>
+                                    </div>
                                     
-                                    {/* 2xl Resolution */}
-                                    <div className='hidden 2xl:block'>
-                                        <Image
-                                            src={Logo}
-                                            width={300}
-                                            height={170}
-                                            alt='Diesel Lider Logo'
-                                        />
-                                    </div>
-                                    {/* Other Resolution */}
-                                    <div className='2xl:hidden'>
-                                        <Image
-                                            src={Logo}
-                                            width={180}
-                                            height={110}
-                                            alt='Diesel Lider Logo'
-                                        />
-                                    </div>
                                                                 
                                     <div className='md:ml-10 2xl:ml-20 flex flex-row w-full'>
                                         <Tooltip
@@ -93,6 +95,7 @@ const HeaderLayout = () => {
                                                 </Link>
                                             </button>
                                         </Tooltip>
+                                       
                                         {/* <div className='ml-10'>
                                             <Link href={"/servicios"}>
                                                 <button 
@@ -113,7 +116,25 @@ const HeaderLayout = () => {
                                             </Link>
 
                                         </div> */}
-                                        <div className='ml-10'>
+                                        <div className='ml-10 flex items-center'>
+                                            <Link href={"/pedidos"}>
+                                                <button 
+                                                    className={` uppercase md:text-xl 2xl:text-3xl font-semibold btnMenu ${(actualPage.split("/")[1] === "pedidos") && "btnMenuActive"}`}
+                                                >
+                                                    <p>Mis Pedidos</p>                                                  
+                                                </button>
+                                            </Link>
+                                        </div>
+                                        <div className='ml-10 flex items-center'>
+                                            <Link href={"/cuentaCorriente"}>
+                                                <button 
+                                                    className={`uppercase md:text-xl 2xl:text-3xl font-semibold btnMenu ${(actualPage.split("/")[1] === "cuentaCorriente") && "btnMenuActive"}`}
+                                                >
+                                                    <p>Cuenta Corriente</p>                                                  
+                                                </button>
+                                            </Link>
+                                        </div>
+                                        <div className='ml-10 flex items-center'>
                                             <Link href={"/contacto"}>
                                                 <button 
                                                     className={`uppercase md:text-xl 2xl:text-3xl font-semibold btnMenu ${(actualPage.split("/")[1] === "contacto") && "btnMenuActive"}`}
@@ -121,18 +142,24 @@ const HeaderLayout = () => {
                                                     <p>Contacto</p>                                                  
                                                 </button>
                                             </Link>
+                                        </div>
+                                        <div className='w-1/4'>
 
                                         </div>
                                         
 
                                     </div>
-                                    <div className='w-full justify-end flex flex-row'>
+                                    <div className='justify-end flex flex-row'>
                                         <button className='uppercase md:mr-10 2xl:mr-20 font-semibold btnMenu'>
                                             <div className='2xl:hidden'>
-                                                <ShoppingCartIcon style={{fontSize:30}}/>
+                                                <Link href={"/pedido"}>
+                                                    <ShoppingCartIcon style={{fontSize:30}}/>
+                                                </Link>
                                             </div>
                                             <div className='hidden 2xl:block'>
-                                                <ShoppingCartIcon style={{fontSize:40}}/>
+                                                <Link href={"/pedido"}>
+                                                    <ShoppingCartIcon style={{fontSize:40}}/>
+                                                </Link>
                                             </div>
                                         </button>
                                         
@@ -140,7 +167,6 @@ const HeaderLayout = () => {
                                             classes={{ tooltip: 'custom-tooltip' }}
                                             title={
                                                 <div className="flex flex-col space-y--10"  style={{ backgroundColor: '#1c5560', padding: '10px', borderRadius: '5px' , opacity:"80%"  }}>
-                                                    <button className='uppercase text-lg 2xl:text-2xl btnMenuOption font-mono p-2'>Mis Pedidos</button>
                                                     <Link href={"/datos"}><button className='uppercase text-lg 2xl:text-2xl btnMenuOption font-mono p-2'>Mis Datos</button></Link>
                                                     <button className='uppercase text-lg 2xl:text-2xl btnMenuOption font-mono p-2'
                                                         onClick={handleModalNotifications}

@@ -54,7 +54,7 @@ const ProductNewsOffersForm = () => {
                     ))}
                 </Select>
                 </FormControl>
-          </div>
+            </div>
 
           </div>
           

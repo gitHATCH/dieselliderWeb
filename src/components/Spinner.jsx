@@ -1,4 +1,3 @@
-/* Spinner de carga al buscar los llamados vigentes */
 import React from 'react'
 
 const Spinner = () => {

@@ -2,7 +2,6 @@ import { useContext, useState } from 'react';
 import { AuthContext } from '../hooks/AuthContext';
 
 import Login from '../components/Login';
-import ProductsLayout from '../components/ProductsLayout';
 import Search from '../components/Search';
 import Products from '../components/Products';
 

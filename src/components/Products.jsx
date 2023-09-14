@@ -6,10 +6,14 @@ import { useState } from 'react';
 import ProductCodeForm from './Forms/ProductCodeForm';
 import ProductDescForm from './Forms/ProductDescForm';
 import ProductPartNumberForm from './Forms/ProductPartNumberForm';
+import ProductTable from './ProductTable';
+import SpinnerProducts from './Spinners/SpinnerProducts';
 
 export default function Products() {
 
     const [typeSearch, setTypeSearch] = useState(0);
+    const [showTable, setShowTable] = useState(false)
+    const [loading, setLoading] = useState(false)
       
     const handleChangeType = (event) => {
         setTypeSearch(event.target.value);
@@ -17,12 +21,18 @@ export default function Products() {
    
     const handleSubmit = (e) => {
         e.preventDefault();
+        setLoading(true)
+        setTimeout(() => {
+            setLoading(false)
+            setShowTable(true)
+        }, 2000);
     };
 
   return (
-    <div className='flex justify-center px-80 mt-10'>
-        <div className='flex justify-center w-full bg-slate-200 rounded-xl shadow-xl shadow-black'>
-        <form className='md:mt-0 2xl:mt-20 w-full p-10' onSubmit={handleSubmit}>
+    <div className='flex-col justify-center w-full'>
+        <div className='flex justify-center'>
+        <div className='flex justify-center w-2/3 mt-10 bg-slate-200 rounded-xl shadow-xl shadow-black'>
+        <div className='md:mt-0 2xl:mt-20 w-full p-10'>
             <Box sx={{ minWidth: 120}}>
                 <div className='flex justify-center flex-col'>
                     <div className='flex flex-row w-full'>
@@ -69,12 +79,28 @@ export default function Products() {
                 <div className='flex justify-center mt-10'>
                     <hr className='border-1 border-black opacity-40 w-1/2' />
                 </div>
+                
+
             </Box>
            
     
           
             
-          </form>
+          </div>
+          </div>
+
+        </div>
+        <div className='flex justify-center w-full'>
+        {loading && (
+                    <div className='flex items-center justify-center mt-5'>
+                        <SpinnerProducts/>
+                    </div>
+                )}
+                {showTable && (
+                    <div className='mt-10 w-6/7'>
+                        <ProductTable/>
+                    </div>
+                )}
         </div>
     </div>
 

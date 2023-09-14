@@ -6,6 +6,7 @@ const ModalContext = React.createContext([{}, ()=>{}])
 const ModalProvider = (props) => {
     const [modalLogOut, setModalLogOut] = useState(false)
     const [modalNotifications, setModalNotifications] = useState(false)
+    const [modalProductData, setModalProductData] = useState(false)
 
     const router = useRouter()
 
@@ -22,9 +23,13 @@ const ModalProvider = (props) => {
     const handleModalLogOut = () => {
         setModalLogOut(!modalLogOut)
     }
+
+    const handleModalProductData = () => {
+        setModalProductData(!modalProductData)
+    }
     
     return (
-        <ModalContext.Provider value={{handleModalLogOut, modalLogOut,handleModalNotifications,modalNotifications}}>
+        <ModalContext.Provider value={{handleModalLogOut, modalLogOut,handleModalNotifications,modalNotifications,handleModalProductData,modalProductData}}>
             {props.children}
         </ModalContext.Provider>
     )      
