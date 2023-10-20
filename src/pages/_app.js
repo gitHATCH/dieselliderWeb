@@ -8,6 +8,7 @@ import { ToastContainer } from 'react-toastify';
 import { ModalProvider } from '../hooks/ModalContext';
 import { AuthProvider } from '../hooks/AuthContext';
 import { ProductProvider } from '../hooks/ProductContext';
+import { OrderProvider } from '../hooks/OrderContext';
 
 function MyApp({ Component, pageProps }) {
   const [paginaLista, setPaginaLista] = useState(false)
@@ -22,10 +23,12 @@ function MyApp({ Component, pageProps }) {
       <ModalProvider>
           <HeaderProvider>
             <ProductProvider>
-              <ToastContainer closeOnClick /> 
-              <Layout>
-                <Component {...pageProps}/>
-              </Layout>
+              <OrderProvider>
+                <ToastContainer closeOnClick /> 
+                <Layout>
+                  <Component {...pageProps}/>
+                </Layout>
+              </OrderProvider>
             </ProductProvider>
           </HeaderProvider>
       </ModalProvider>

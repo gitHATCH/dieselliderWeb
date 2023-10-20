@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Button, FormControl, FormControlLabel, FormLabel, IconButton, InputLabel, MenuItem, OutlinedInput, Radio, RadioGroup, Select, TextField } from '@mui/material';
 import { useState } from 'react';
-import ProductNewsOffersForm from '../components/Forms/ProductNewsOffersForm';
+import ProductNewsOffersForm from '../components/forms/product/ProductNewsOffersForm';
 
 const Ofertas = () => {
 

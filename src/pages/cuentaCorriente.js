@@ -1,6 +1,6 @@
 import React from 'react'
-import AccountConditionCard from '../components/AccountConditionCard'
-import AccoountConditionForm from '../components/Forms/AccountConditionForm'
+import AccountConditionCard from '../components/cards/AccountConditionCard'
+import AccountConditionLayout from '../components/accountCondition/AccountConditionLayout'
 
 const CuentaCorriente = () => {
   return (
@@ -16,7 +16,7 @@ const CuentaCorriente = () => {
         <div className='mt-10 flex justify-center'>
             <div className='w-4/5'>
             
-                <AccoountConditionForm/>
+                <AccountConditionLayout/>
                      
             </div>
         </div>

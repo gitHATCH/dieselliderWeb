@@ -11,6 +11,7 @@ const HeaderProvider = (props) => {
     const [showStatus, setShowStatus] = useState(false)
     const [modalUser, setModalUser] = useState(false)
     const [actualPage, setActualPage] = useState("")
+    const [dataPage, setDataPage] = useState(0)
     const router = useRouter()
 
     
@@ -37,9 +38,12 @@ const HeaderProvider = (props) => {
     const handleCloseModalUser = () => {
         setModalUser(false)
     }
+    const handleDataPage = (page) => {
+        setDataPage(page)
+    }
 
     return (
-        <HeaderContext.Provider value={[collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modalUser, handleOpenModalUser, handleCloseModalUser]}>
+        <HeaderContext.Provider value={{collaps, handleCollaps, showStatus, okShowStatus, hideShowStatus, actualPage, modalUser, handleOpenModalUser, handleCloseModalUser, dataPage, handleDataPage}}>
             {props.children}
         </HeaderContext.Provider>
     )      

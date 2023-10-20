@@ -2,7 +2,9 @@ import React from 'react'
 import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import ContactForm from '../components/Forms/ContactForm';
+import ContactForm from '../components/forms/ContactForm';
+
+//TODO: Modularizar
 
 const Contacto = () => {
   return (

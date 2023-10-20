@@ -4,94 +4,50 @@ import { toast } from 'react-toastify';
 const OrderContext = React.createContext([{}, ()=>{}])
 
 const OrderProvider = (props) => {
-    const [orders, setOrders] = useState([])
-    const [actualOrder, setActualOrder] = useState(null)
+    const [order, setOrder] = useState([])
     const [loading, setLoading] = useState(true)
-    
-    const getOrders = async () => {
-        setLoading(true)  
+
+    const deleteOrder = () => {
+        setOrder([])
+    }
+    const editOrder = (product) => {
+        
+    }
+    const checkAlreadyExist = (code) => {
+        let flag = false
+        order.forEach(product => {
+            if(product.code == code){
+                flag = true
+            }
+        })
+
+        return flag
+    }
+    const addProduct = (product) => {
         try {
-            const data = [
-                {
-                    numero: "1",
-                    estado: 0,
-                    preset: 3000,
-                    camion: "4515asdsa24",
-                    cliente: "4515asdsa24",
-                    chofer: "4515asdsa24",
-                    producto: "asgasgas",
-        
-                },
-                {
-                    numero: "2",
-                    estado: 1,
-                    preset: 3000,
-                    camion: "4515asdsa24",
-                    cliente: "4515asdsa24",
-                    chofer: "4515asdsa24",
-                    producto: "asgasgas",
-        
-                },
-                {
-                    numero: "3",
-                    estado: 2,
-                    preset: 3000,
-                    camion: "4515asdsa24",
-                    cliente: "4515asdsa24",
-                    chofer: "4515asdsa24",
-                    producto: "asgasgas",
-        
-                },
-            ]
-            setOrders(data)
-            setLoading(false)
+            const updatedOrder = [...order];
+            updatedOrder.push(product)
+            setOrder(updatedOrder);
+            toast.success("Producto agregado correctamente!")
         } catch (error) {
             console.log(error);
-        } 
-        setLoading(false)  
+        }  
     }
-    
-    const handleActualOrder = (order) => {
-        setActualOrder(order)
-    }
-
-    const deleteOrder = async() => {
+    const deleteProduct = (code) => {
         try {
-            const updatedOrders = orders.filter((_, index) => index !== actualOrder);
-            setOrders(updatedOrders);
-            setActualOrder(null);
-            toast.success("Orden eliminada correctamente")
+            const updatedOrder = order.filter((product) => product.code !== code);
+            setOrder(updatedOrder);
+            toast.success("Producto eliminado correctamente!")
         } catch (error) {
             console.log(error);
         }
     }
+    const editProduct = () => {
 
-    const editOrder = async(order) => {
-        try {
-            console.log(order);
-            const updatedOrders = [...orders];
-            updatedOrders[actualOrder] = order;
-            setOrders(updatedOrders);
-            setActualOrder(null);
-            toast.success("Orden editada correctamente")
-        } catch (error) {
-            console.log(error);
-        }
     }
 
-    const addOrder = async(order) => {
-        try {
-            const updatedOrders = [...orders];
-            updatedOrders.push(order)
-            setOrders(updatedOrders);
-            toast.success("Orden agregada correctamente")
-        } catch (error) {
-            console.log(error);
-        }   
-    }
-    
     return (
-        <OrderContext.Provider value={[orders,getOrders,loading,actualOrder,handleActualOrder,deleteOrder,editOrder,addOrder]}>
+        <OrderContext.Provider value={{order,addProduct,deleteProduct,checkAlreadyExist}}>
             {props.children}
         </OrderContext.Provider>
     )      

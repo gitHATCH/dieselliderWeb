@@ -1,15 +1,16 @@
 import * as React from 'react';
 import { Box, Button, FormControl, FormControlLabel, FormLabel, IconButton, InputLabel, MenuItem, OutlinedInput, Radio, RadioGroup, Select, TextField } from '@mui/material';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
-import Logo from "../assets/images/DLCircle.png"
+import Logo from "../../assets/images/DLCircle.png"
 import { useState } from 'react';
-import ProductCodeForm from './Forms/ProductCodeForm';
-import ProductDescForm from './Forms/ProductDescForm';
-import ProductPartNumberForm from './Forms/ProductPartNumberForm';
+import ProductCodeForm from '../forms/product/ProductCodeForm';
+import ProductDescForm from '../forms/product/ProductDescForm';
+import ProductPartNumberForm from '../forms/product/ProductPartNumberForm';
 import ProductTable from './ProductTable';
-import SpinnerProducts from './Spinners/SpinnerProducts';
+import SpinnerProducts from '../spinners/SpinnerProducts';
+//TODO: Modularizar
 
-export default function Products() {
+export default function ProductsSearchTypeSelector() {
 
     const [typeSearch, setTypeSearch] = useState(0);
     const [showTable, setShowTable] = useState(false)

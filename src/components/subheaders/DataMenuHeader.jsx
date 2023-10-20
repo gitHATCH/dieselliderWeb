@@ -1,12 +1,9 @@
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { Menu } from 'semantic-ui-react';
-import SearchIcon from '@mui/icons-material/Search';
-import Search from './Search';
 
 export default function DataMenuHeader({option,change}) {
   
-
   const handleItemClick = (e, { name, path }) => {
     change(path)
   };

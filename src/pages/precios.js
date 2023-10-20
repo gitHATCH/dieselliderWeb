@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Box, Button, FormControl, FormControlLabel, FormLabel, IconButton, InputLabel, MenuItem, OutlinedInput, Radio, RadioGroup, Select, TextField } from '@mui/material';
 import { useState } from 'react';
-import ProductPirceForm from '../components/Forms/ProductPirceForm';
+import ProductPirceForm from '../components/forms/product/ProductPirceForm';
 
 const Precios = () => {
 

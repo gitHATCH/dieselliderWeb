@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import CustomerAddressCard from '../CustomerAddressCard'
+import CustomerAddressCard from '../../cards/CustomerAddressCard'
 import { TextField } from '@mui/material'
 
 const DataShippingForm = () => {

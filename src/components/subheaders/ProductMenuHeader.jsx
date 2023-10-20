@@ -1,8 +1,6 @@
 import { useRouter } from 'next/router';
 import React, { useEffect } from 'react';
 import { Menu } from 'semantic-ui-react';
-import SearchIcon from '@mui/icons-material/Search';
-import Search from './Search';
 
 export default function ProductMenuHeader() {
   const router = useRouter();

@@ -35,7 +35,7 @@ const ProductNewsOffersForm = () => {
                     onChange={handleChangeType} 
                 >
                     {types.map((type,index) => (
-                    <MenuItem value={index}>{type}</MenuItem>
+                    <MenuItem key={index} value={index}>{type}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>
@@ -50,7 +50,7 @@ const ProductNewsOffersForm = () => {
                     onChange={handleChangeBrand} 
                 >
                     {types.map((type,index) => (
-                    <MenuItem value={index}>{type}</MenuItem>
+                    <MenuItem key={index} value={index}>{type}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>

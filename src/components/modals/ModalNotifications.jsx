@@ -14,6 +14,7 @@ import Checkbox from '@mui/material/Checkbox';
 
 const ModalNotifications = () => {
     //TODO: Change background circle -> color
+    //TODO: Modularizar
     
     const {modalNotifications,handleModalNotifications} = useContext(ModalContext);
     const {unAuthorize} = useContext(AuthContext);

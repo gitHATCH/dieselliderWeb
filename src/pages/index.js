@@ -1,9 +1,8 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from '../hooks/AuthContext';
 
-import Login from '../components/Login';
-import Search from '../components/Search';
-import Products from '../components/Products';
+import LoginLayout from '../components/login/LoginLayout';
+import Products from '../components/products/ProductsSearchTypeSelector';
 
 export default function Home() {
   const {loading,auth} = useContext(AuthContext);
@@ -11,7 +10,7 @@ export default function Home() {
   return (
     <>
       {!loading && (
-        !auth ? <Login/> : (
+        !auth ? <LoginLayout/> : (
           <>
             <Products/>
           </>

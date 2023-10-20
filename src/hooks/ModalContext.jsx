@@ -7,13 +7,18 @@ const ModalProvider = (props) => {
     const [modalLogOut, setModalLogOut] = useState(false)
     const [modalNotifications, setModalNotifications] = useState(false)
     const [modalProductData, setModalProductData] = useState(false)
+    const [modalProductView, setModalProductView] = useState(false)
+    const [modalProductAdd, setModalProductAdd] = useState(false)
 
     const router = useRouter()
 
     useEffect(() => {
         setModalNotifications(false)
         setModalLogOut(false)
-      }, [router.pathname])
+        setModalProductData(false)
+        setModalProductView(false)
+        setModalProductAdd(false)
+    }, [router.pathname])
 
    
     const handleModalNotifications = () => {
@@ -27,9 +32,17 @@ const ModalProvider = (props) => {
     const handleModalProductData = () => {
         setModalProductData(!modalProductData)
     }
+
+    const handleModalProductView = () => {
+        setModalProductView(!modalProductView)
+    }
+
+    const handleModalProductAdd = () => {
+        setModalProductAdd(!modalProductAdd)
+    }
     
     return (
-        <ModalContext.Provider value={{handleModalLogOut, modalLogOut,handleModalNotifications,modalNotifications,handleModalProductData,modalProductData}}>
+        <ModalContext.Provider value={{handleModalLogOut, modalLogOut,handleModalNotifications,modalNotifications,handleModalProductData,modalProductData,handleModalProductView,modalProductView,handleModalProductAdd,modalProductAdd}}>
             {props.children}
         </ModalContext.Provider>
     )      

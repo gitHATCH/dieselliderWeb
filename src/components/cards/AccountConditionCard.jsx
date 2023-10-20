@@ -30,7 +30,7 @@ const AccountConditionCard = () => {
 
             </div>
             <div className='w-2/3'>
-                <div className='flex flex-row w-full p-2 px-5'>
+                <div className='flex flex-row w-full p-2'>
                     <div className='w-1/2'>
                         <p className='text-lg font-semibold'>Límite Crédito:</p>
                         <p className='text-lg font-semibold'>Disponible:</p>
@@ -43,7 +43,7 @@ const AccountConditionCard = () => {
                 
             </div>
             <div className='w-2/3'>
-                <div className='flex flex-row w-full p-2 px-5'>
+                <div className='flex flex-row w-full p-2'>
                     <div className='w-1/2'>
                         <p className='text-lg font-semibold'>Total Vencido:</p>
                         <p className='text-lg font-semibold'>Total a Vencer:</p>
