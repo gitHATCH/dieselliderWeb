@@ -25,8 +25,8 @@ export default function DataMenuHeader({option,change}) {
                 active={option === item.path}
                 onClick={(e) => handleItemClick(e, item)}
                 style={{
-                  color: option === item.path ? '#001f36' : 'white',
-                  borderBottom: option === item.path ? '4px solid #001f36' : '2px solid transparent',
+                  color: option === item.path ? '#79ae92' : 'white',
+                  borderBottom: option === item.path ? '2px solid #262626' : '2px solid transparent',
                 }}
                 className='2xl:text-3xl'
               />

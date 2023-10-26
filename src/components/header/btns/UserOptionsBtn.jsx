@@ -13,7 +13,7 @@ const UserOptionsBtn = () => {
         <Tooltip
             classes={{ tooltip: 'custom-tooltip' }}
             title={
-                <div className="flex flex-col space-y--10"  style={{ backgroundColor: '#1c5560', padding: '10px', borderRadius: '5px' , opacity:"80%"  }}>
+                <div className="flex flex-col space-y--10"  style={{ backgroundColor: '#262626', padding: '10px', borderRadius: '5px'  }}>
                     <Link href={"/datos"}><button className='uppercase text-lg 2xl:text-2xl btnMenuOption font-mono p-2'>Mis Datos</button></Link>
                     <button className='uppercase text-lg 2xl:text-2xl btnMenuOption font-mono p-2'
                         onClick={handleModalNotifications}

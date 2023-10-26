@@ -32,9 +32,10 @@ export default function ProductMenuHeader() {
                 active={page === item.path}
                 onClick={(e) => handleItemClick(e, item)}
                 style={{
-                  color: page === item.path ? '#001f36' : 'white',
-                  borderBottom: page === item.path ? '4px solid #001f36' : '2px solid transparent',
+                  color: page === item.path ? '#79ae92' : 'white',
+                  borderBottom: page === item.path ? '2px solid #262626' : '2px solid transparent',
                 }}
+                
                 className='2xl:text-3xl'
               />
             ))}

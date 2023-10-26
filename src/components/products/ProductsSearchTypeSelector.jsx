@@ -32,7 +32,7 @@ export default function ProductsSearchTypeSelector() {
   return (
     <div className='flex-col justify-center w-full'>
         <div className='flex justify-center'>
-        <div className='flex justify-center w-2/3 mt-10 bg-slate-200 rounded-xl shadow-xl shadow-black'>
+        <div className='flex justify-center w-2/3 mt-10 bg-slate-200 rounded-xl shadow-md shadow-black'>
         <div className='md:mt-0 2xl:mt-20 w-full p-10'>
             <Box sx={{ minWidth: 120}}>
                 <div className='flex justify-center flex-col'>

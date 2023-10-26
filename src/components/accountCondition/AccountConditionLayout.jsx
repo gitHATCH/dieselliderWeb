@@ -66,7 +66,7 @@ const AccountConditionLayout = () => {
     }
 
   return (
-    <div className='w-full bg-slate-300 p-10 rounded-xl shadow-xl shadow-black'>
+    <div className='w-full bg-slate-300 p-10 rounded-xl shadow-md shadow-black mb-10'>
             <div className=''>
                 {!showMore ? (
                     <AccountConditionSimpleForm  voucher={voucher} period={period} handleChangeVoucher={handleChangeVoucher} handleChangePeriod={handleChangePeriod} vouchers={vouchers} periods={periods}/>

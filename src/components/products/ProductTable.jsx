@@ -48,7 +48,7 @@ export default function ProductTable() {
 
   return (
     <>
-    <div className='w-full mt-10 mb-10 shadow-xl shadow-black rounded-xl' style={{ maxHeight: '350px', overflowY: 'auto' }}>
+    <div className='w-full mt-10 mb-10 shadow-md shadow-black rounded-xl' style={{ maxHeight: '350px', overflowY: 'auto' }}>
       <table aria-label="w-full" className='bg-slate-300 rounded-xl'>
         <thead className='sticky top-0 z-1'>
           <tr>

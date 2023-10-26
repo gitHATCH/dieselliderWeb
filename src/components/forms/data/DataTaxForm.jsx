@@ -20,7 +20,7 @@ const DataTaxForm = () => {
   const [iibb, setIibb] = useState(data.iibb)
   
   return (
-    <form className='w-4/5 rounded-xl shadow-black shadow-xl bg-slate-300 p-10'>
+    <form className='w-4/5 rounded-xl shadow-black shadow-md bg-slate-300 p-10'>
         
       <div className='w-full flex flex-row'>
             <div className='w-1/2 formInput'>

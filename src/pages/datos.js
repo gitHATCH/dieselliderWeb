@@ -10,15 +10,15 @@ const Datos = () => {
 
   return (
     <div className=''>
-     
-      <div className='flex justify-center'>
-        <div className='w-3/4 bg-sec rounded-xl mt-10 p-10'>
-          <div className='text-center'>
-            <h1 className='font-mono font-semibold text-4xl text-slate-900'>
+     <div className='text-center mt-10'>
+            <h1 className='font-mono font-semibold text-4xl'>
               {dataPage == 0 ? "Datos Generales y de Contacto" : dataPage == 1 ? "Domicilios de Envío" : "Inscripciones impositivas"}
             </h1>
           </div>
-          <div className='mt-10 flex justify-center'>
+      <div className='flex justify-center'>
+        
+        <div className='w-3/4 bg-sec rounded-xl mt-10 p-10 mb-10'>
+          <div className='mt-5 flex justify-center'>
             <div className='flex justify-center w-full'>
               {dataPage == 0 ? <DataGeneralForm/> : dataPage == 1 ? <DataShippingForm/> : <DataTaxForm/>}
             </div>

@@ -13,7 +13,7 @@ const Contacto = () => {
         <h1 className='font-mono font-semibold text-5xl'>Centro de Atención</h1>
       </div>
 
-      <div className='flex flex-row w-1/2 bg-sec rounded-lg shadow-lg shadow-black mt-7 p-4'>
+      <div className='flex flex-row w-1/2 bg-slate-300 rounded-md shadow-md shadow-black mt-7 p-4'>
         <div className='w-1/2 flex flex-col items-center justify-center h-full'>
           <div className='rounded-full bg-blue shadow-lg shadow-black p-2 text-green-900'>
             <PhoneIcon style={{fontSize:60}}/>
@@ -38,7 +38,7 @@ const Contacto = () => {
         </div>
       </div>
 
-      <div className='flex flex-row w-2/3 bg-sec rounded-lg shadow-lg shadow-black mt-10 p-4'>
+      <div className='flex flex-row w-2/3 bg-slate-300 rounded-lg shadow-md shadow-black mt-10 p-4'>
         <div className='w-full flex flex-col items-center justify-center h-full'>
           <div className='rounded-full bg-blue shadow-lg shadow-black p-2 text-green-900'>
             <MailOutlineIcon style={{fontSize:60}}/>
@@ -172,7 +172,7 @@ const Contacto = () => {
       <div className='w-full text-center mt-10'>
             <h2 className='font-mono font-semibold text-3xl'>Contáctenos</h2>
       </div>
-      <div className='mt-5 mb-20 w-1/2 bg-slate-300 rounded-xl shadow-xl shadow-black'>
+      <div className='mt-5 mb-20 w-1/2 bg-slate-300 rounded-xl shadow-md shadow-black'>
        <ContactForm/> 
       </div>
 

@@ -48,7 +48,7 @@ const DataShippingForm = () => {
     <div className='w-full flex justify-between gap-10'>
       <div className='w-2/5'>
         {data.map((item,index) => (
-          <div key={index} className={`${actualCard == index ? "bg-slate-300 border-4 border-orange-700" : "bg-slate-400 hover:bg-slate-300 border-4 border-transparent hover:border-orange-700"} w-full rounded-xl p-4 shadow-lg shadow-black mb-5 cursor-pointer`}
+          <div key={index} className={`${actualCard == index ? "bg-slate-300 border-4 border-orange-700" : "bg-slate-400 hover:bg-slate-300 border-4 border-transparent hover:border-orange-700"} w-full rounded-xl p-4 shadow-md shadow-black mb-5 cursor-pointer`}
             onClick={()=>handleChangeActualCard(index)}
           >
             <CustomerAddressCard item={item}/>
@@ -56,7 +56,7 @@ const DataShippingForm = () => {
         ))}
 
       </div>
-      <div className='w-3/5 rounded-xl shadow-black shadow-xl bg-slate-300 p-10'>
+      <div className='w-3/5 rounded-xl shadow-black shadow-md bg-slate-300 p-10'>
         <div className='w-1/2 formInput'>
           <TextField
               fullWidth 

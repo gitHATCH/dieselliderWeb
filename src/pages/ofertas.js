@@ -17,7 +17,7 @@ const Ofertas = () => {
 
 return (
   <div className='flex justify-center px-80 mt-10'>
-      <div className='flex justify-center w-full bg-slate-200 rounded-xl shadow-xl shadow-black'>
+      <div className='flex justify-center w-full bg-slate-200 rounded-xl shadow-md shadow-black'>
       <form className='md:mt-0 2xl:mt-20 w-full p-10' onSubmit={handleSubmit}>
           <Box sx={{ minWidth: 120}}>
               <div className='flex justify-center flex-col'>

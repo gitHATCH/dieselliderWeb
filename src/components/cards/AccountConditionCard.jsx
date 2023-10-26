@@ -14,7 +14,7 @@ const AccountConditionCard = () => {
     }
 
   return (
-    <div className='w-full bg-slate-300 rounded-xl shadow-lg shadow-black p-3'>
+    <div className='w-full bg-slate-300 rounded-xl shadow-md shadow-black p-3'>
         <div className='flex flex-row w-full'>
             <div className='w-full p-2 px-5'>
                 <p className='text-lg font-semibold'>Estado de Cuenta: 

@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
-import Logo from "../../assets/images/LogoDL.png"
+import Logo from "../../assets/images/log11.png"
 
 
 const HeaderLogo = () => {

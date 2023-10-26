@@ -60,7 +60,7 @@ const DataGeneralForm = () => {
     }
 
   return (
-    <form className='w-5/6 rounded-xl shadow-black shadow-xl bg-slate-300 p-10'>
+    <form className='w-5/6 rounded-xl shadow-black shadow-md bg-slate-300 p-10'>
         <div className='flex justify-center'>
             <div className='formInput w-1/2'>
                 <TextField

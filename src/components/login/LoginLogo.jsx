@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import Logo from "../../assets/images/DLCircle.png"
+import Logo from "../../assets/images/log11.png"
 
 
 const LoginLogo = () => {
@@ -10,7 +10,7 @@ const LoginLogo = () => {
         <div className='2xl:hidden'>
             <Image
                 src={Logo}
-                width={100}
+                width={150}
                 height={100}
                 alt='Diesel Lider Logo'
             />
@@ -19,7 +19,7 @@ const LoginLogo = () => {
         <div className='hidden 2xl:block'>
             <Image
                 src={Logo}
-                width={200}
+                width={250}
                 height={200}
                 alt='Diesel Lider Logo'
             />
