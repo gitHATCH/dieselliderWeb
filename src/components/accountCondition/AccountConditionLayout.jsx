@@ -92,7 +92,7 @@ const AccountConditionLayout = () => {
                 )}
 
                 <div className='flex mt-5 h-16'>
-                    <div className='flex items-center w-1/4'>
+                    <div className='flex items-center w-64'>
                         <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 rounded-r-none w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
                             BUSCAR
                         </button>

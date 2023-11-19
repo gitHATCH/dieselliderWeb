@@ -22,8 +22,8 @@ const HeaderLogo = () => {
         <div className='2xl:hidden'>
             <Image
                 src={Logo}
-                width={150}
-                height={80}
+                width={120}
+                height={60}
                 alt='Diesel Lider Logo'
             />
         </div>

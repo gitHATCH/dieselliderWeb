@@ -1,14 +1,17 @@
 import React from 'react'
+import MyOrdersLayout from '../components/orders/MyOrdersLayout'
 
 const Pedidos = () => {
   return (
-    <div>
-      <div className=' w-full text-center mt-10'>
-        <h1 className='font-mono font-semibold text-5xl'>Mis Pedidos</h1>
-      <div className='w-5/6 bg-slate-200'>
-          <table></table>
+    <div className=''>
+        <div className='text-center mt-10'>
+            <h1 className='font-mono font-semibold text-5xl'>Mis Pedidos</h1>
         </div>
-      </div>
+        <div className=''>
+            
+            <MyOrdersLayout/>
+                     
+        </div>
     </div>
   )
 }

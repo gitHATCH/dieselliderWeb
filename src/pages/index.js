@@ -11,12 +11,13 @@ export default function Home() {
     <>
       {!loading && (
         !auth ? <LoginLayout/> : (
-          <>
+          <div className=''>
             <Products/>
-          </>
+          </div>
         )
       )}
     </>
   ) 
 }
 
+//TODO: Change pedido, pedidos, orders, cuentaCorriente-forms, app

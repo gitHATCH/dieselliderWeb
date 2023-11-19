@@ -37,7 +37,7 @@ const ContactForm = () => {
 
   return (
     <div>
-        <form className='flex w-full justify-center items-center p-10 flex-col' onSubmit={handleSubmit}>
+        <form className='flex w-full justify-center items-center p-5 flex-col' onSubmit={handleSubmit}>
             <div className='formInput w-2/3'>
                 <TextField 
                     fullWidth 
@@ -89,18 +89,11 @@ const ContactForm = () => {
             />
           </div>
           <div className='flex justify-center'>
-                <div className='btnSearch mt-5 hover:opacity-90 w-full'>
-                    <Button
-                        fullWidth 
-                        variant="contained"
-                        style={{backgroundColor:"transparent", fontSize:15, fontWeight:"bold"}}
-                        onClick={handleSubmit}
-                    >
-                        <div className='2xl:h-12 flex items-center'>
-                            <p className='text-lg 2xl:text-3xl font-semibold px-10'>Enviar</p>
-                        </div>
-                    </Button>
-                </div>
+            <div className='flex items-center w-80 h-14 mt-5'>
+                <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
+                    ENVIAR
+                </button>
+            </div>
             </div>
         </form>
     </div>

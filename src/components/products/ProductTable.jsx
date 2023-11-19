@@ -15,24 +15,20 @@ import ModalProductView from '../modals/ModalProductView';
 import { OrderContext } from '../../hooks/OrderContext';
 import ModalProductAdd from '../modals/ModalProductAdd';
 //TODO: Modularizar
+//TODO: Agregar grupo checkbox, only 1
 
 export default function ProductTable() {
   const {modalProductData,handleModalProductData,modalProductView,handleModalProductView,modalProductAdd,handleModalProductAdd} = useContext(ModalContext);
   const {addProduct,order,checkAlreadyExist,deleteProduct} = useContext(OrderContext)
-  const [selected, setSelected] = useState([]);
   const [product, setProduct] = useState(null);
-
+  const [selected, setSelected] = useState(null)
 
   const titles = ["","Código DL","Descripción","Marca","Precio","Descuento","Precio Neto", "Stock", "Detalles"]
  
-  const handleSelected = (index) => {
-    if(selected.includes(index)){
-      setSelected(selected.filter((item) => item !== index))
-    }
-    else{
-      setSelected([...selected, index])
-    }
+  const handleSelected = (code) => {
+    setSelected((prevSelected) => (prevSelected === code ? null : code))
   }
+  
 
   const handleDetailProduct = (product) => {
     setProduct(product)
@@ -44,11 +40,16 @@ export default function ProductTable() {
     handleModalProductView()
   }
 
+  const handleAddProduct = (product) => {
+    setProduct(product)
+    handleModalProductAdd()
+  }
+
   console.log(order);
 
   return (
     <>
-    <div className='w-full mt-10 mb-10 shadow-md shadow-black rounded-xl' style={{ maxHeight: '350px', overflowY: 'auto' }}>
+    <div className='w-full mt-5 shadow-md shadow-black rounded-xl' style={{ maxHeight: '350px', overflowY: 'auto' }}>
       <table aria-label="w-full" className='bg-slate-300 rounded-xl'>
         <thead className='sticky top-0 z-1'>
           <tr>
@@ -59,13 +60,20 @@ export default function ProductTable() {
         </thead>
         <tbody>
           {rows.map((row,index) => (
-            <tr key={index} className={`p-2 ${index % 2 ? "bg-slate-300" : "bg-slate-400"} hover:bg-cyan-600 hover:bg-opacity-20 bg-green-800`}>
+            <tr key={index} className={`p-2 ${selected == index ? "bg-orange-200" : index % 2 ? "bg-slate-300 hover:bg-cyan-600 hover:bg-opacity-20" : "bg-slate-400 hover:bg-cyan-600 hover:bg-opacity-20"} bg-green-800`}
+              onClick={() => handleSelected(index)}
+            >
               <td className='tableContent max-w-xs'>
-                <Checkbox
-                  sx={{ '& .MuiSvgIcon-root': { fontSize: 24, color:"blue" } }}
-                  value={selected.includes(index)}
-                  onChange={() => handleSelected(index)}
-                />
+              <input
+                type='checkbox'
+                key={index}
+                id={`product-checkbox-${index}`}
+                className='w-5 h-5'
+                checked={selected === index}
+                onChange={() => handleSelected(index)}
+              />
+                
+                {console.log(selected === index,selected,index)}
               </td>
               <td className='tableContent max-w-xs'>{row.code}</td>
               <td className='tableContent max-w-sm'>{row.descr}</td>
@@ -80,17 +88,26 @@ export default function ProductTable() {
              </td>
               <td className='tableContent max-w-xs flex justify-center'>
                 <button className='bg-blue-700 hover:bg-blue-600 rounded-full p-2 shadow-black shadow-sm flex items-center justify-center'
-                  onClick={() => handleDetailProduct(row)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleDetailProduct(row);
+                  }}
                 >
                   <ArticleOutlinedIcon style={{fontSize:24}}/>
                 </button>
                 <button className='ml-2 bg-orange-700 hover:bg-orange-600 rounded-full p-2 shadow-black shadow-sm flex items-center justify-center'
-                  onClick={() => handleViewProduct(row)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleViewProduct(row);
+                  }}
                 >
                   <ImageOutlinedIcon style={{fontSize:24}}/>
                 </button>
                 <button className={`ml-2 ${checkAlreadyExist(row.code) ? "bg-red-700 hover:bg-red-600 " : "bg-green-700 hover:bg-green-600"} rounded-full p-2 shadow-black shadow-sm flex items-center justify-center`}
-                  onClick={checkAlreadyExist(row.code) ? () => deleteProduct(row.code) : () => addProduct(row)}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleAddProduct(row);
+                  }}
                 >
                   {checkAlreadyExist(row.code) ? (
                     <RemoveShoppingCartOutlinedIcon style={{fontSize:24}}/>
@@ -108,6 +125,7 @@ export default function ProductTable() {
       </table>
       {modalProductData && <ModalProductData product = {product}/>}
       {modalProductView && <ModalProductView product = {product}/>}
+      {modalProductAdd && <ModalProductAdd product = {product}/>}
     </div>
     </>
   );

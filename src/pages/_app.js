@@ -24,7 +24,7 @@ function MyApp({ Component, pageProps }) {
           <HeaderProvider>
             <ProductProvider>
               <OrderProvider>
-                <ToastContainer closeOnClick /> 
+                <ToastContainer closeOnClick autoClose={1000} position="bottom-right"/> 
                 <Layout>
                   <Component {...pageProps}/>
                 </Layout>

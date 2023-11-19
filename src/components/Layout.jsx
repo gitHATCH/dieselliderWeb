@@ -19,7 +19,7 @@ const Layout = ({children}) => {
     <>
       {!loading && (
           <>
-            <div className='flex flex-col h-screen w-full'>
+            <div className='flex flex-col h-screen w-full mb-0'>
               {auth && (
                 <div className={`w-full h-1/9 `}>
                   <HeaderLayout/>
@@ -27,7 +27,9 @@ const Layout = ({children}) => {
               )}
               <div className={`w-full h-full overflow-y-auto`}>
                 {children}
+                
               </div>
+              
             </div>  
           </>
       )}

@@ -12,6 +12,7 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
             <div>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker
+                        className='w-72'
                         label="Fecha Desde"
                         onChange={handleChangeFromDate}
                     />
@@ -20,12 +21,14 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
             <div className='ml-5'>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                     <DatePicker 
+                        className='w-72'
                         label="Fecha Hasta"
                         onChange={handleChangeToDate}
                     />
                 </LocalizationProvider>
             </div>
-            <div className='ml-5 w-1/4'>
+            <div className='w-1/4'></div>
+            <div className='ml-5 w-1/3'>
                 <FormControl fullWidth>
                     <InputLabel id="typeMov">Tipo de Movimiento</InputLabel>
                     <Select
@@ -40,7 +43,37 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                     </Select>
                 </FormControl>
             </div>
-            <div className='ml-5 w-1/4'>
+            
+        </div>
+        <div className='flex mt-5 w-full'>
+            <div className='mr-5'>
+                <FormControl>
+                    <InputLabel id="fromDebit">Debe/Haber Desde</InputLabel>
+                    <OutlinedInput
+                        className='w-72'
+                        labelId="fromDebit"
+                        label="Debe/Haber Desde"
+                        value={fromDebit}
+                        onChange={handleChangeFromDebit}
+                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    />
+                </FormControl>
+            </div>
+            <div className=''>
+                <FormControl>
+                    <InputLabel id="toDebit">Debe/Haber Hasta</InputLabel>
+                    <OutlinedInput
+                        className='w-72'
+                        labelId="toDebit"
+                        label="Debe/Haber Hasta"
+                        value={toDebit}
+                        onChange={handleChangeToDebit}
+                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
+                    />
+                </FormControl>
+            </div>
+            <div className='w-1/4'></div>
+            <div className='ml-5 w-1/3'>
                 <FormControl fullWidth>
                     <InputLabel id="typeBal">Tipo de Saldo</InputLabel>
                     <Select
@@ -55,32 +88,6 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                     </Select>
                 </FormControl>
             </div>
-        </div>
-        <div className='flex mt-5 w-full'>
-            <div className='mr-5'>
-                <FormControl>
-                    <InputLabel id="fromDebit">Debe/Haber Desde</InputLabel>
-                    <OutlinedInput
-                        labelId="fromDebit"
-                        label="Debe/Haber Desde"
-                        value={fromDebit}
-                        onChange={handleChangeFromDebit}
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                    />
-                </FormControl>
-            </div>
-            <div className=''>
-                <FormControl>
-                    <InputLabel id="toDebit">Debe/Haber Hasta</InputLabel>
-                    <OutlinedInput
-                        labelId="toDebit"
-                        label="Debe/Haber Hasta"
-                        value={toDebit}
-                        onChange={handleChangeToDebit}
-                        startAdornment={<InputAdornment position="start">$</InputAdornment>}
-                    />
-                </FormControl>
-            </div>
             
         </div>
         <div className='flex w-full mt-5'>
@@ -88,6 +95,7 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                     <FormControl>
                         <InputLabel id="fromBal">Saldo Desde</InputLabel>
                         <OutlinedInput
+                            className='w-72'
                             labelId="fromBal"
                             label="Saldo Desde"
                             value={fromBalance}
@@ -95,11 +103,12 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                             startAdornment={<InputAdornment position="start">$</InputAdornment>}
                         />
                     </FormControl>
-                </div>
+            </div>
                 <div className=''>
                     <FormControl>
                         <InputLabel id="toBal">Saldo Hasta</InputLabel>
                         <OutlinedInput
+                            className='w-72'
                             labelId="toBal"
                             label="Saldo Hasta"
                             value={toBalance}

@@ -159,78 +159,16 @@ p,h1,h2,h3,h4,h5,h6 {
   font-size: 2rem;
 }
 
-.Header-metamask {
-  margin-left: 30%;
-  width: 20px;
-  height: 20px;
-}
-.Header-metamask-close {
-  margin-left: 10%;
-  width: 20px;
-  height: 20px;
-}
-
 a {
   color: var(--white);
   text-decoration: none;
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   font-weight: 700;
   text-transform: uppercase;
   padding: .5rem;
   transition-property: background-color;
   transition-duration: 300ms;
   
-}
-a:hover,
-.activeHome {
-  color: var(--white);
-}
-
-a:hover,
-.active {
-  color: var(--green);
-}
-
-.call {
-  display: grid;
-  grid-template-columns: 1fr 7fr;
-  gap: 0.1rem;
-  align-items: center;
-  max-width: 70rem;
-  margin: 0 auto;
-  border: 1px solid;
-  border-radius: 500px;
-  max-height: 8rem;
-  justify-content: center;
-  align-items: center;
-  background-color: #262626;
-  color: #FFF;
-  border-color: #262626;
-  font-weight: 700;
-  transition-property: #14532d;
-  transition-duration: .3s;
-  margin-bottom: 5px;
-
-}
-.call:hover {
-  background-color: var(--primary);
-  cursor: pointer;
-}
-.content {
-  padding: 0.9rem;
-}
-.content h3 {
-  font-size: 1.5rem;
-  text-transform: uppercase;
-}
-.callNumber {
-  max-width: 58rem;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 6;
-  overflow: clip;
-  font-size: 1rem;
-  color: white;
 }
 
 .selectBar {
@@ -317,21 +255,4 @@ a:hover,
   } 100%, 0% {
     transform: scale(1.0); 
   } 
-}
-
-
-
-.tanque {
-
-  border: 4px solid black;
-  position: relative;
-  overflow: hidden;
-}
-
-.tanque-liquido {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  transition: height 0.5s ease;
 }

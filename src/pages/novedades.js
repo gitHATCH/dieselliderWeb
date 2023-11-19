@@ -16,46 +16,33 @@ const Novedades = () => {
   };
 
 return (
-  <div className='flex justify-center px-80 mt-10'>
-      <div className='flex justify-center w-full bg-slate-200 rounded-xl shadow-md shadow-black'>
-      <form className='md:mt-0 2xl:mt-20 w-full p-10' onSubmit={handleSubmit}>
-          <Box sx={{ minWidth: 120}}>
-              <div className='flex justify-center flex-col'>
-                  <div className='flex w-full'>
-                      <div className='w-full'>
-                          <ProductNewsOffersForm/>
-                      </div>
-                  </div>
-                  <div className='flex justify-center'>
-                      <div className='btnSearch mt-5 hover:opacity-90 w-1/2'>
-                          <Button
-                              fullWidth 
-                              variant="contained"
-                              style={{backgroundColor:"transparent", fontSize:15, fontWeight:"bold"}}
-                              onClick={handleSubmit}
-                          >
-                              <div className='2xl:h-12 flex items-center'>
-                              <p className='text-lg 2xl:text-3xl font-semibold'>Buscar</p>
-                              </div>
-                          </Button>
-                      </div>
-                  </div>
-                  
-                  
-              </div>
-              
-              
-              <div className='flex justify-center mt-10'>
-                  <hr className='border-1 border-black opacity-40 w-1/2' />
-              </div>
-          </Box>
-         
-  
-        
-          
-        </form>
-      </div>
+    <div className='w-full flex justify-center flex-col '>
+        <div className='flex justify-center mt-10'>
+            <div className='flex justify-center w-4/5 mt-10 bg-slate-200 rounded-xl shadow-md shadow-black'>
+                <form className='md:mt-0 2xl:mt-20 w-full p-5' onSubmit={handleSubmit}>
+                    <div className='flex justify-center flex-col'>
+                        <div className='flex w-full'>
+                            <div className='w-full'>
+                                <ProductNewsOffersForm/>
+                            </div>
+                        </div>
+                        <div className='flex justify-center'>
+                            <div className='flex items-center w-1/2 h-14 mt-5'>
+                                <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
+                                    BUSCAR
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div className='flex justify-center mt-5'>
+                        <hr className='border-1 border-black opacity-40 w-1/2' />
+                    </div>
+                </form>
+            </div>
+    </div>
   </div>
+
 
 );
 }

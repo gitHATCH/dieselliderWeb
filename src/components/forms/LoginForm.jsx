@@ -95,8 +95,15 @@ const LoginForm = () => {
             <p className='forgot text-md 2xl:text-lg font-medium opacity-80'>Olvidé mi contraseña</p>
             </div>
         </Box>
+        <div className='mt-10 flex justify-center'>
+          <div className='flex items-center w-full h-14 mt-5'>
+              <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
+                  INICIAR SESION
+              </button>
+          </div>
+        </div>
 
-        <Button 
+        {/* <Button 
             fullWidth 
             variant="contained" 
             style={{marginTop:40, backgroundColor:"#1c5560", display: 'flex', justifyContent: 'center', alignItems: 'center'}}
@@ -105,7 +112,7 @@ const LoginForm = () => {
             <div className='2xl:h-12 flex items-center '>           
                 <p className='text-xl 2xl:text-3xl font-semibold'>Iniciar Sesion</p>
             </div>
-        </Button>
+        </Button> */}
     </form>
   )
 }

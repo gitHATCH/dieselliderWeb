@@ -20,6 +20,7 @@ const ModalProvider = (props) => {
         setModalProductAdd(false)
     }, [router.pathname])
 
+    console.log(modalLogOut);
    
     const handleModalNotifications = () => {
         setModalNotifications(!modalNotifications)

@@ -3,6 +3,7 @@ import PhoneIcon from '@mui/icons-material/Phone';
 import WhatsAppIcon from '@mui/icons-material/WhatsApp';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import ContactForm from '../components/forms/ContactForm';
+import CallOutlinedIcon from '@mui/icons-material/CallOutlined';
 
 //TODO: Modularizar
 
@@ -13,12 +14,12 @@ const Contacto = () => {
         <h1 className='font-mono font-semibold text-5xl'>Centro de Atención</h1>
       </div>
 
-      <div className='flex flex-row w-1/2 bg-slate-300 rounded-md shadow-md shadow-black mt-7 p-4'>
+      <div className='flex flex-row w-1/2 bg-slate-300 rounded-md shadow-md shadow-black mt-7 p-2'>
         <div className='w-1/2 flex flex-col items-center justify-center h-full'>
-          <div className='rounded-full bg-blue shadow-lg shadow-black p-2 text-green-900'>
-            <PhoneIcon style={{fontSize:60}}/>
+          <div className='text-green-900'>
+            <CallOutlinedIcon style={{fontSize:50}}/>
           </div>
-          <div className='mt-10'>
+          <div className='mt-5'>
           <div className='text-center'>
             <p className='text-lg font-mono font-medium mb-1'>351 422-7861 (Arg)</p>
             <p className='text-lg font-mono font-medium mb-1'>0054 351 422-7861 (Ext)</p>
@@ -27,10 +28,10 @@ const Contacto = () => {
           </div>          
         </div>
         <div className='w-1/2 flex flex-col items-center justify-center h-full'>
-          <div className='rounded-full bg-blue shadow-lg shadow-black p-2 text-green-900'>
-            <WhatsAppIcon style={{fontSize:60}}/>
+          <div className='text-green-900'>
+            <WhatsAppIcon style={{fontSize:50}}/>
           </div>
-          <div className='mt-10 text-center flex flex-col'>
+          <div className='mt-5 text-center flex flex-col'>
             <p className='text-lg font-mono font-medium mb-1'>+54 9 351 2005843</p>
             <p className='text-lg font-mono font-medium mb-1'>+54 9 351 2006173</p>
             <p className='text-lg font-mono font-medium'>+54 9 351 2003408</p>
@@ -38,12 +39,12 @@ const Contacto = () => {
         </div>
       </div>
 
-      <div className='flex flex-row w-2/3 bg-slate-300 rounded-lg shadow-md shadow-black mt-10 p-4'>
+      <div className='flex flex-row w-2/3 bg-slate-300 rounded-lg shadow-md shadow-black mt-10 p-2'>
         <div className='w-full flex flex-col items-center justify-center h-full'>
-          <div className='rounded-full bg-blue shadow-lg shadow-black p-2 text-green-900'>
-            <MailOutlineIcon style={{fontSize:60}}/>
+          <div className='text-green-900'>
+            <MailOutlineIcon style={{fontSize:50}}/>
           </div>
-          <div className='w-full text-center mt-10'>
+          <div className='w-full text-center mt-5'>
             <h2 className='font-mono font-semibold text-3xl'>Clientes</h2>
           </div>
           <div className='mt-5 flex flex-row w-full'>
@@ -69,7 +70,7 @@ const Contacto = () => {
             </div>
           </div>
 
-          <div className='mt-10 flex flex-row w-full'>
+          <div className='mt-5 flex flex-row w-full'>
             <div className='w-1/2 text-center items-center'>
               <p className='font-mono font-extrabold uppercase text-center items-center'>
                 <span className='bg-prim shadow-md shadow-black text-black hover:opacity-80 cursor-default p-2 rounded-xl'>Exterior</span>
@@ -92,7 +93,7 @@ const Contacto = () => {
             <h2 className='font-mono font-semibold text-3xl'>Proveedores</h2>
           </div>
 
-          <div className='mt-10 flex flex-row w-full'>
+          <div className='mt-5 flex flex-row w-full'>
             <div className='w-1/2 text-center items-center'>
               <p className='font-mono font-extrabold uppercase text-center items-center'>
                 <span className='bg-prim shadow-md shadow-black text-black hover:opacity-80 cursor-default p-2 rounded-xl'>Nacional</span>
@@ -111,7 +112,7 @@ const Contacto = () => {
             </div>
           </div>
 
-          <div className='mt-10 flex flex-row w-full'>
+          <div className='mt-5 flex flex-row w-full'>
             <div className='w-1/2 text-center items-center'>
               <p className='font-mono font-extrabold uppercase text-center items-center'>
                 <span className='bg-prim shadow-md shadow-black text-black hover:opacity-80 cursor-default p-2 rounded-xl'>Exterior</span>
@@ -155,7 +156,7 @@ const Contacto = () => {
               </div>
             </div>
           </div>
-          <div className='mt-10 w-full text-center items-center'>
+          <div className='mt-5 w-full text-center items-center'>
             <p className='font-mono font-extrabold uppercase text-center items-center'>
               <span className='bg-prim shadow-md shadow-black text-black hover:opacity-80 cursor-default p-2 rounded-xl'>Gerencia</span>
             </p>
@@ -169,7 +170,7 @@ const Contacto = () => {
         
         
       </div>
-      <div className='w-full text-center mt-10'>
+      <div className='w-full text-center mt-20'>
             <h2 className='font-mono font-semibold text-3xl'>Contáctenos</h2>
       </div>
       <div className='mt-5 mb-20 w-1/2 bg-slate-300 rounded-xl shadow-md shadow-black'>
