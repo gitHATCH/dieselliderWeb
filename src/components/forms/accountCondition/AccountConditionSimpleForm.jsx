@@ -5,7 +5,7 @@ import { FormControl, Hidden, InputAdornment, InputLabel, MenuItem, OutlinedInpu
 const AccountConditionSimpleForm = ({ voucher, period, handleChangeVoucher, handleChangePeriod, vouchers, periods }) => {
   return (
     <div className='flex'>
-        <div className={`formInput w-1/4`}>
+        <div className={`formInput w-1/3`}>
             <FormControl fullWidth>
             <InputLabel id="vouchers">Comprobantes</InputLabel>
             <Select
@@ -20,7 +20,7 @@ const AccountConditionSimpleForm = ({ voucher, period, handleChangeVoucher, hand
             </Select>
             </FormControl>
         </div>
-        <div className='formInput w-1/4 ml-5'>
+        <div className='formInput w-1/3 ml-5'>
             <FormControl fullWidth>
             <InputLabel id="vouchers">Períodos</InputLabel>
             <Select

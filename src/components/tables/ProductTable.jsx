@@ -15,21 +15,27 @@ import ModalProductView from '../modals/ModalProductView';
 import { OrderContext } from '../../hooks/OrderContext';
 import ModalProductAdd from '../modals/ModalProductAdd';
 //TODO: Modularizar
-//TODO: Agregar grupo checkbox, only 1
+//TODO: Select debe desaparecer si se selecciona un producto de otra tabla
 
-export default function ProductTable() {
+export default function ProductTable({selectedRows,handleSelectedRows}) {
   const {modalProductData,handleModalProductData,modalProductView,handleModalProductView,modalProductAdd,handleModalProductAdd} = useContext(ModalContext);
   const {addProduct,order,checkAlreadyExist,deleteProduct} = useContext(OrderContext)
   const [product, setProduct] = useState(null);
   const [selected, setSelected] = useState(null)
 
+  useEffect(() => {
+    if(selectedRows && selectedRows != [0,selected]){
+      setSelected(null)
+    }
+  }, [selectedRows])
+  
   const titles = ["","Código DL","Descripción","Marca","Precio","Descuento","Precio Neto", "Stock", "Detalles"]
  
   const handleSelected = (code) => {
     setSelected((prevSelected) => (prevSelected === code ? null : code))
+    handleSelectedRows([0,code])
   }
   
-
   const handleDetailProduct = (product) => {
     setProduct(product)
     handleModalProductData()
@@ -45,16 +51,14 @@ export default function ProductTable() {
     handleModalProductAdd()
   }
 
-  console.log(order);
-
   return (
     <>
-    <div className='w-full mt-5 shadow-md shadow-black rounded-xl' style={{ maxHeight: '350px', overflowY: 'auto' }}>
+    <div className='w-full shadow-md shadow-black rounded-xl' style={{ maxHeight: '350px', overflowY: 'auto' }}>
       <table aria-label="w-full" className='bg-slate-300 rounded-xl'>
         <thead className='sticky top-0 z-1'>
           <tr>
             {titles.map((title,index) => (
-              <th className='tableTitle text-left' key={index}>{title}</th>
+              <th className='tableTitle text-left' key={index}><p className='text-lg'>{title}</p></th>
             ))}
           </tr>
         </thead>
@@ -73,7 +77,6 @@ export default function ProductTable() {
                 onChange={() => handleSelected(index)}
               />
                 
-                {console.log(selected === index,selected,index)}
               </td>
               <td className='tableContent max-w-xs'>{row.code}</td>
               <td className='tableContent max-w-sm'>{row.descr}</td>
@@ -119,9 +122,7 @@ export default function ProductTable() {
             </tr>
           ))}
         </tbody>
-        <tfoot className='w-full h-2'>
-          <tr></tr>
-        </tfoot>
+      
       </table>
       {modalProductData && <ModalProductData product = {product}/>}
       {modalProductView && <ModalProductView product = {product}/>}

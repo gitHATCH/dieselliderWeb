@@ -32,7 +32,6 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                 <FormControl fullWidth>
                     <InputLabel id="typeMov">Tipo de Movimiento</InputLabel>
                     <Select
-                        labelId="typeMov"
                         label="Tipo de Movimiento"
                         value={typeMov}
                         onChange={handleChangeTypeMov} 
@@ -51,7 +50,6 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                     <InputLabel id="fromDebit">Debe/Haber Desde</InputLabel>
                     <OutlinedInput
                         className='w-72'
-                        labelId="fromDebit"
                         label="Debe/Haber Desde"
                         value={fromDebit}
                         onChange={handleChangeFromDebit}
@@ -64,7 +62,6 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                     <InputLabel id="toDebit">Debe/Haber Hasta</InputLabel>
                     <OutlinedInput
                         className='w-72'
-                        labelId="toDebit"
                         label="Debe/Haber Hasta"
                         value={toDebit}
                         onChange={handleChangeToDebit}
@@ -77,7 +74,6 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                 <FormControl fullWidth>
                     <InputLabel id="typeBal">Tipo de Saldo</InputLabel>
                     <Select
-                        labelId="typeBal"
                         label="Tipo de Movimiento"
                         value={typeBal}
                         onChange={handleChangeTypeBal} 
@@ -96,7 +92,6 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                         <InputLabel id="fromBal">Saldo Desde</InputLabel>
                         <OutlinedInput
                             className='w-72'
-                            labelId="fromBal"
                             label="Saldo Desde"
                             value={fromBalance}
                             onChange={handleChangeFromBalance}
@@ -109,7 +104,6 @@ const AccountConditionExtendedForm = ({ fromBalance, handleChangeFromBalance, to
                         <InputLabel id="toBal">Saldo Hasta</InputLabel>
                         <OutlinedInput
                             className='w-72'
-                            labelId="toBal"
                             label="Saldo Hasta"
                             value={toBalance}
                             onChange={handleChangeToBalance}

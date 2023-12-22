@@ -18,7 +18,7 @@ const ModalProductAdd = ({product}) => {
     const {modalProductAdd,handleModalProductAdd} = useContext(ModalContext);
     const {addProduct,order,checkAlreadyExist,deleteProduct} = useContext(OrderContext)
     const router = useRouter()
-
+    console.log("AAAAAAA: ",product);
     const style = {
         position: 'absolute',
         top: '50%',
@@ -47,7 +47,7 @@ const ModalProductAdd = ({product}) => {
     }
     const handleAddProductAndOrder = () => {
         handleAddProduct()
-        router.push('/pedido')
+        router.push('/pedido').then(() => window.scrollTo(0, 0))
     }
     const handleCancel = () => {
         handleModalProductAdd()
@@ -80,9 +80,9 @@ const ModalProductAdd = ({product}) => {
                         <div className='w-full px-4'>
                             <div className='w-full bg-slate-400 rounded-md shadow-sm shadow-black p-4 flex justify-between gap-6'>
                                 <div className='w-1/2'>
-                                    <p className='text-lg font-semibold'>Código DL:<span className='ml-2 font-normal text-base'>{product.code}</span></p>
-                                    <p className='text-lg font-semibold'>Marca: <span className='ml-2 font-normal text-base'>{product.brand}</span></p>
-                                    <p className='text-lg font-semibold'>Tipo de Producto: <span className='ml-2 font-normal text-base'>{product.type}</span></p>
+                                    <p className='text-lg font-semibold'>Código DL:<span className='ml-2 font-normal text-base'>{product?.code}</span></p>
+                                    <p className='text-lg font-semibold'>Marca: <span className='ml-2 font-normal text-base'>{product?.brand}</span></p>
+                                    <p className='text-lg font-semibold'>Tipo de Producto: <span className='ml-2 font-normal text-base'>{product?.type}</span></p>
                                     <div>
                                         <TextField
                                             id="count" 
@@ -96,15 +96,15 @@ const ModalProductAdd = ({product}) => {
                                 <div className='w-1/2'>
                                     <div className='flex flex-row items-center'>
                                         <div className='w-1/3'><p className='text-lg font-semibold'>Precio:</p></div>
-                                        <div><p className='ml-10 font-normal text-base rounded-lg bg-slate-500 p-1 px-3 shadow-black shadow-sm'>{product.price}</p></div>
+                                        <div><p className='ml-10 font-normal text-base rounded-lg bg-slate-500 p-1 px-3 shadow-black shadow-sm'>{product?.price}</p></div>
                                     </div>
                                     <div className='flex flex-row items-center mt-2'>
                                         <div className='w-1/3'><p className='text-lg font-semibold'>Descuento:</p></div>
-                                        <div><p className='ml-10 font-normal text-base rounded-lg bg-slate-500 p-1 px-3 shadow-black shadow-sm'>%{product.disc}</p></div>
+                                        <div><p className='ml-10 font-normal text-base rounded-lg bg-slate-500 p-1 px-3 shadow-black shadow-sm'>%{product?.disc}</p></div>
                                     </div>
                                     <div className='flex flex-row items-center mt-2'>
                                         <div className='w-1/3'><p className='text-lg font-semibold'>Precio Neto:</p></div>
-                                        <div><p className='ml-10 font-normal text-base bg-green-700 shadow-black shadow-sm rounded-lg p-1 px-3'>{product.charge}</p></div>
+                                        <div><p className='ml-10 font-normal text-base bg-green-700 shadow-black shadow-sm rounded-lg p-1 px-3'>{product?.charge}</p></div>
                                     </div>
                                     <div className='flex flex-row items-center mt-2'>
                                         <div className='w-1/3'><p className='text-lg font-semibold mt-2'>Stock:</p></div>

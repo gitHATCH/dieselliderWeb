@@ -21,11 +21,12 @@ const HeaderLayout = () => {
     const {modalLogOut, handleModalLogOut,modalNotifications,handleModalNotifications} = useContext(ModalContext)
     const router = useRouter()
 
+   
       return (
         <>
         {auth && (
             <>
-                <div className='shadow-md shadow-black header'>
+                <div className='shadow-md shadow-black header' >
                     <div position="static">
                         <div className='p-2 px-6 2xl:p-5 2xl:ml-10'>
                                 <div className='flex items-center w-full'>

@@ -9,6 +9,9 @@ const ModalProvider = (props) => {
     const [modalProductData, setModalProductData] = useState(false)
     const [modalProductView, setModalProductView] = useState(false)
     const [modalProductAdd, setModalProductAdd] = useState(false)
+    const [modalProductAddedData, setModalProductAddedData] = useState(false)
+    const [modalMyOrdersData, setModalMyOrdersData] = useState(false)
+    const [modalVerify, setModalVerify] = useState(false)
 
     const router = useRouter()
 
@@ -18,9 +21,10 @@ const ModalProvider = (props) => {
         setModalProductData(false)
         setModalProductView(false)
         setModalProductAdd(false)
+        setModalProductAddedData(false)
+        setModalMyOrdersData(false)
+        setModalVerify(false)
     }, [router.pathname])
-
-    console.log(modalLogOut);
    
     const handleModalNotifications = () => {
         setModalNotifications(!modalNotifications)
@@ -41,9 +45,21 @@ const ModalProvider = (props) => {
     const handleModalProductAdd = () => {
         setModalProductAdd(!modalProductAdd)
     }
+
+    const handleModalProductAddedData = () => {
+        setModalProductAddedData(!modalProductAddedData)
+    }
+
+    const handleModalMyOrdersData = () => {
+        setModalMyOrdersData(!modalMyOrdersData)
+    }
+
+    const handleModalVerify = () => {
+        setModalVerify(!modalVerify)
+    }
     
     return (
-        <ModalContext.Provider value={{handleModalLogOut, modalLogOut,handleModalNotifications,modalNotifications,handleModalProductData,modalProductData,handleModalProductView,modalProductView,handleModalProductAdd,modalProductAdd}}>
+        <ModalContext.Provider value={{handleModalLogOut, modalLogOut,handleModalNotifications,modalNotifications,handleModalProductData,modalProductData,handleModalProductView,modalProductView,handleModalProductAdd,modalProductAdd,handleModalProductAddedData,modalProductAddedData,handleModalMyOrdersData, modalMyOrdersData, handleModalVerify, modalVerify}}>
             {props.children}
         </ModalContext.Provider>
     )      

@@ -8,13 +8,13 @@ const CuentaCorriente = () => {
         <div className='text-center mt-10'>
             <h1 className='font-mono font-semibold text-5xl'>Cuenta Corriente</h1>
         </div>
-        <div className='mt-10 flex justify-center'>
+        <div className='mt-5 flex justify-center'>
             <div className='w-4/5'>
                 <AccountConditionCard/>
             </div>
         </div>
-        <div className='mt-10 flex justify-center'>
-            <div className='w-4/5'>
+        <div className=' flex justify-center'>
+            <div className='w-full'>
             
                 <AccountConditionLayout/>
                      

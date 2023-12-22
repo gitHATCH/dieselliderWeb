@@ -32,7 +32,6 @@ const MyOrdersExtendedForm = ({ fromOrder, toOrder, handleChangeFromOrder, handl
                 <FormControl fullWidth>
                     <InputLabel id="orderState">Estado del Pedido</InputLabel>
                     <Select
-                        labelId="orderState"
                         label="Estado del Pedido"
                         value={orderState}
                         onChange={handleChangeOrderState} 
@@ -51,7 +50,6 @@ const MyOrdersExtendedForm = ({ fromOrder, toOrder, handleChangeFromOrder, handl
                     <InputLabel id="fromOrder">Número de Pedido Desde</InputLabel>
                     <OutlinedInput
                         className='w-72'
-                        labelId="fromOrder"
                         label="Número de Pedido Desde"
                         value={fromOrder}
                         onChange={handleChangeFromOrder}
@@ -63,7 +61,6 @@ const MyOrdersExtendedForm = ({ fromOrder, toOrder, handleChangeFromOrder, handl
                     <InputLabel id="toOrder">Número de Pedido Hasta</InputLabel>
                     <OutlinedInput
                         className='w-72'
-                        labelId="toOrder"
                         label="Número de Pedido Hasta"
                         value={toOrder}
                         onChange={handleChangeToOrder}
@@ -80,7 +77,6 @@ const MyOrdersExtendedForm = ({ fromOrder, toOrder, handleChangeFromOrder, handl
                     <InputLabel id="fromBalance">Importe Total Desde</InputLabel>
                     <OutlinedInput
                         className='w-72'
-                        labelId="fromBalance"
                         label="Importe Total Desde"
                         value={fromBalance}
                         onChange={handleChangeFromBalance}
@@ -93,7 +89,6 @@ const MyOrdersExtendedForm = ({ fromOrder, toOrder, handleChangeFromOrder, handl
                     <InputLabel id="toDebit">Debe/Haber Hasta</InputLabel>
                     <OutlinedInput
                         className='w-72'
-                        labelId="toDebit"
                         label="Debe/Haber Hasta"
                         value={toDebit}
                         onChange={handleChangeToDebit}
@@ -104,7 +99,8 @@ const MyOrdersExtendedForm = ({ fromOrder, toOrder, handleChangeFromOrder, handl
             
         </div>
         
-    </div>  )
+    </div>  
+    )
 }
 
 export default MyOrdersExtendedForm

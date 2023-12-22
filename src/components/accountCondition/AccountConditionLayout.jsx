@@ -4,8 +4,15 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import AccountConditionSimpleForm from '../forms/accountCondition/AccountConditionSimpleForm';
 import AccountConditionExtendedForm from '../forms/accountCondition/AccountConditionExtendedForm';
+import PrintOutlinedIcon from '@mui/icons-material/PrintOutlined';
+import ReplayOutlinedIcon from '@mui/icons-material/ReplayOutlined';
+import MyVouchersTable from '../tables/MyVouchersTable';
+import SpinnerProducts from '../spinners/SpinnerProducts';
+
 
 const AccountConditionLayout = () => {
+    const [showTable, setShowTable] = useState(false)
+    const [loading, setLoading] = useState(false)
     const [voucher, setVoucher] = useState("")
     const [period, setPeriod] = useState("")
     const [showMore, setShowMore] = useState(false)
@@ -37,7 +44,7 @@ const AccountConditionLayout = () => {
         setFromDate(event.target?.value)
     }
     const handleChangeToDate = (event) => {
-        setToDate(event.target.value)
+        setToDate(event.target?.value)
     }
     const handleChangeTypeMov = (event) => {
         setTypeMov(event.target.value)
@@ -63,53 +70,97 @@ const AccountConditionLayout = () => {
         if(voucher === "" || period === ""){
             toast.error("Todos los campos son obligatorios!")
         }
+        else {
+            setLoading(true)
+            setTimeout(() => {
+                setLoading(false)
+                setShowTable(true)
+            }, 3000);
+        
+        }
+        
     }
 
   return (
-    <div className='w-full bg-slate-300 p-10 rounded-xl shadow-md shadow-black mb-10'>
-            <div className=''>
-                {!showMore ? (
-                    <AccountConditionSimpleForm  voucher={voucher} period={period} handleChangeVoucher={handleChangeVoucher} handleChangePeriod={handleChangePeriod} vouchers={vouchers} periods={periods}/>
-                ) : (
-                    <AccountConditionExtendedForm
-                        fromDebit={fromDebit}
-                        toDebit={toDebit}    
-                        typeMov={typeMov}
-                        typeBal={typeBal}
-                        fromBalance={fromBalance}
-                        toBalance={toBalance}
-                        handleChangeToBalance={handleChangeToBalance}
-                        handleChangeFromBalance={handleChangeFromBalance}
-                        handleChangeToDebit={handleChangeToDebit}
-                        handleChangeFromDebit = {handleChangeFromDebit}
-                        handleChangeFromDate={handleChangeFromDate}
-                        handleChangeToDate={handleChangeToDate}
-                        handleChangeTypeMov={handleChangeTypeMov}
-                        handleChangeTypeBal={handleChangeTypeBal}
-                        movTypes={movTypes}
-                        balTypes={balTypes}
-                    />
-                )}
+    <div className='w-full flex justify-center flex-col'>
+        <div className='flex justify-center mt-10'>
+            <div className='w-4/5 bg-slate-300 p-5 rounded-xl shadow-md shadow-black'>
+                    <div className={`${!showMore ? "flex justify-between" : "flex-col"} items-center `}>
+                        {!showMore ? (
+                            <div className='w-full'>
+                                <AccountConditionSimpleForm  voucher={voucher} period={period} handleChangeVoucher={handleChangeVoucher} handleChangePeriod={handleChangePeriod} vouchers={vouchers} periods={periods}/>
+                            </div>
+                        ) : (
+                            <AccountConditionExtendedForm
+                                fromDebit={fromDebit}
+                                toDebit={toDebit}    
+                                typeMov={typeMov}
+                                typeBal={typeBal}
+                                fromBalance={fromBalance}
+                                toBalance={toBalance}
+                                handleChangeToBalance={handleChangeToBalance}
+                                handleChangeFromBalance={handleChangeFromBalance}
+                                handleChangeToDebit={handleChangeToDebit}
+                                handleChangeFromDebit = {handleChangeFromDebit}
+                                handleChangeFromDate={handleChangeFromDate}
+                                handleChangeToDate={handleChangeToDate}
+                                handleChangeTypeMov={handleChangeTypeMov}
+                                handleChangeTypeBal={handleChangeTypeBal}
+                                movTypes={movTypes}
+                                balTypes={balTypes}
+                            />
+                        )}
 
-                <div className='flex mt-5 h-16'>
-                    <div className='flex items-center w-64'>
-                        <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 rounded-r-none w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
-                            BUSCAR
-                        </button>
+                        <div className={`flex h-16 ${showMore && "justify-end"}`}>
+                            <div className='flex items-center w-72'>
+                                <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 rounded-r-none w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
+                                    BUSCAR
+                                </button>
+                            </div>
+                            <div className='flex items-center ml-0'>
+                                <button type="button" className="bg-blue-900 hover:bg-blue-800 rounded-md h-4/5 rounded-l-none w-full text-white font-mono text-lg cursor-pointer uppercase" onClick={handleChangeShowMore}>
+                                    {!showMore ? (
+                                        <ExpandMoreIcon style={{fontSize:30}}/>
+                                    ) : (
+                                        <ExpandLessIcon style={{fontSize:30}}/>
+                                    )}
+                                </button>
+                            </div>
+                        </div>
+                        
                     </div>
-                    <div className='flex items-center ml-0'>
-                        <button type="button" className="bg-blue-900 hover:bg-blue-800 rounded-md h-4/5 rounded-l-none w-full text-white font-mono text-lg cursor-pointer uppercase" onClick={handleChangeShowMore}>
-                            {!showMore ? (
-                                <ExpandMoreIcon style={{fontSize:30}}/>
-                            ) : (
-                                <ExpandLessIcon style={{fontSize:30}}/>
-                            )}
-                        </button>
-                    </div>
-                </div>
-                
+                    
             </div>
-        
+        </div>
+        <div className='flex justify-center w-full'>
+            <div className='w-5/6'>
+
+            {loading && (
+                <div className='mt-5 flex items-center justify-center'>
+                    <SpinnerProducts/>
+                </div>
+            )}
+            {showTable && (
+                <div className='flex flex-col mb-10 w-full'>
+                    <div className='w-full mt-10 flex justify-end gap-5'>
+                        <button className='w-auto p-2 px-4 bg-blue-900 hover:bg-blue-700 h-auto rounded-xl'>
+                            <PrintOutlinedIcon style={{color:"white", fontSize:20}}/>
+                        </button>
+                        <button className='w-auto p-2 px-4 bg-blue-900 hover:bg-blue-700 h-auto rounded-md text-white'>
+                            Exportar
+                        </button>
+                        <button className='w-auto p-2 px-4 bg-blue-900 hover:bg-blue-700 h-auto rounded-xl'>
+                            <ReplayOutlinedIcon style={{color:"white", fontSize:20}}/>
+                        </button>
+                    </div>
+                    <div className='mt-0 w-6/7'>
+                        <MyVouchersTable/>
+                    </div>
+                    
+                </div>
+            )}
+            </div>
+        </div>
     </div>
   )
 }

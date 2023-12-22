@@ -3,22 +3,21 @@ import Checkbox from '@mui/material/Checkbox';
 import React from 'react'
 import { useState } from 'react';
 
-const ProductNewsOffersForm = () => {
-    const [type, setType] = useState("");
-    const [brand, setBrand] = useState("");
-    const [desc, setDesc] = useState("");
-  
-      const handleChangeType = (event) => {
-          setType(event.target.value);
-      };
-      const handleChangeBrand = (event) => {
-        setBrand(event.target.value);
-      };
-      const handleChangeDesc = (event) => {
-        setDesc(event.target.value);
-      };
-      
-      const types = ["safa","afasfa","afasfa","afa afa","afa"]
+const ProductNewsOffersForm = ({type,setType,brand,setBrand,desc,setDesc}) => {
+
+    const [actualType, setActualType] = useState("");
+    const [actualBrand, setActualBrand] = useState("");
+    const types = ["safa","afasfa","afasfa","afa afa","afa"]
+    const brands = ["safa","afasfa"]
+
+    const handleChangeType = (value) => {
+        setActualType(value);
+        setType(types[value]);
+    };
+    const handleChangeBrand = (value) => {
+      setActualBrand(value);
+      setBrand(brands[value]);
+    };
   
     return (
       <div className='w-full flex justify-center'>
@@ -31,8 +30,8 @@ const ProductNewsOffersForm = () => {
                 <Select
                     labelId="type"
                     label="Tipo de Producto"
-                    value={type}
-                    onChange={handleChangeType} 
+                    value={actualType}
+                    onChange={e => handleChangeType(e.target.value)} 
                 >
                     {types.map((type,index) => (
                     <MenuItem key={index} value={index}>{type}</MenuItem>
@@ -46,11 +45,11 @@ const ProductNewsOffersForm = () => {
                 <Select
                     labelId="type"
                     label="Marca"
-                    value={brand}
-                    onChange={handleChangeBrand} 
+                    value={actualBrand}
+                    onChange={e => handleChangeBrand(e.target.value)} 
                 >
-                    {types.map((type,index) => (
-                    <MenuItem key={index} value={index}>{type}</MenuItem>
+                    {brands.map((brand,index) => (
+                    <MenuItem key={index} value={index}>{brand}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>
@@ -65,7 +64,8 @@ const ProductNewsOffersForm = () => {
               id="desc" 
               label="Descripción" 
               variant="outlined" 
-              onChange={handleChangeDesc}
+              value={desc}
+              onChange={e => setDesc(e.target.value)}
             />
           </div>
             

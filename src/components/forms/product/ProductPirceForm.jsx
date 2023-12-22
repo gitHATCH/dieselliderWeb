@@ -3,31 +3,26 @@ import Checkbox from '@mui/material/Checkbox';
 import React from 'react'
 import { useState } from 'react';
 
-const ProductPirceForm = () => {
-    const [section, setSection] = useState("");
-    const [group, setGroup] = useState("");
-    const [subgroup, setSubgroup] = useState("");
-    const [desc, setDesc] = useState("");
-    const [code, setCode] = useState("");
+const ProductPirceForm = ({section, setSection, group, setGroup, subgroup, setSubgroup, desc, setDesc, code, setCode}) => {
+    const [actualSection, setActualSection] = useState("");
+    const [actualGroup, setActualGroup] = useState("");
+    const [actualSubgroup, setActualSubgroup] = useState("");
+    const sections = ["safa","afasfa","afasfa","afa afa","afa"]
+    const groups = ["safa","afasfa","afasfa"]
+    const subgroups = ["safa","afasfa"]
 
-  
-      const handleChangeSection = (event) => {
-          setSection(event.target.value);
+      const handleChangeSection = (value) => {
+          setActualSection(value);
+          setSection(sections[value])
       };
-      const handleChangeGroup = (event) => {
-        setGroup(event.target.value);
+      const handleChangeGroup = (value) => {
+        setActualGroup(value);
+        setGroup(groups[value])
       };
-      const handleChangeSubgroup = (event) => {
-        setSubgroup(event.target.value);
-      };
-      const handleChangeDesc = (event) => {
-        setDesc(event.target.value);
-      };
-      const handleChangeCode = (event) => {
-        setCode(event.target.value);
-      };
-      
-      const types = ["safa","afasfa","afasfa","afa afa","afa"]
+      const handleChangeSubgroup = (value) => {
+        setActualSubgroup(value);
+        setSubgroup(subgroups[value])
+      };      
   
     return (
       <div className='w-full flex justify-center'>
@@ -40,11 +35,11 @@ const ProductPirceForm = () => {
                 <Select
                     labelId="type"
                     label="Sección"
-                    value={section}
-                    onChange={handleChangeSection} 
+                    value={actualSection}
+                    onChange={e => handleChangeSection(e.target.value)} 
                 >
-                    {types.map((type,index) => (
-                    <MenuItem value={index}>{type}</MenuItem>
+                    {sections.map((section,index) => (
+                    <MenuItem value={index} key={index}>{section}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>
@@ -55,11 +50,11 @@ const ProductPirceForm = () => {
                 <Select
                     labelId="type"
                     label="Grupo"
-                    value={group}
-                    onChange={handleChangeGroup} 
+                    value={actualGroup}
+                    onChange={e => handleChangeGroup(e.target.value)} 
                 >
-                    {types.map((type,index) => (
-                    <MenuItem value={index}>{type}</MenuItem>
+                    {groups.map((group,index) => (
+                    <MenuItem value={index} key={index}>{group}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>
@@ -70,11 +65,11 @@ const ProductPirceForm = () => {
                 <Select
                     labelId="type"
                     label="Subgrupo"
-                    value={subgroup}
-                    onChange={handleChangeSubgroup} 
+                    value={actualSubgroup}
+                    onChange={e => handleChangeSubgroup(e.target.value)} 
                 >
-                    {types.map((type,index) => (
-                    <MenuItem value={index}>{type}</MenuItem>
+                    {subgroups.map((subgroup,index) => (
+                    <MenuItem value={index} key={index}>{subgroup}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>
@@ -88,7 +83,8 @@ const ProductPirceForm = () => {
                     id="code" 
                     label="Código DL" 
                     variant="outlined" 
-                    onChange={handleChangeCode}
+                    value={code}
+                    onChange={e => setCode(e.target.value)}
                 />
             </div>
             <div className='formInput w-full'>
@@ -97,7 +93,8 @@ const ProductPirceForm = () => {
                     id="desc" 
                     label="Descripción" 
                     variant="outlined" 
-                    onChange={handleChangeDesc}
+                    value={desc}
+                    onChange={e => setDesc(e.target.value)}
                 />
             </div>
           </div>

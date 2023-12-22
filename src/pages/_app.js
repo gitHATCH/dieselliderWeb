@@ -9,6 +9,7 @@ import { ModalProvider } from '../hooks/ModalContext';
 import { AuthProvider } from '../hooks/AuthContext';
 import { ProductProvider } from '../hooks/ProductContext';
 import { OrderProvider } from '../hooks/OrderContext';
+import Head from 'next/head';
 
 function MyApp({ Component, pageProps }) {
   const [paginaLista, setPaginaLista] = useState(false)
@@ -17,24 +18,33 @@ function MyApp({ Component, pageProps }) {
     setPaginaLista(true)
   }, [])
 
-  return paginaLista ? (
-    
-    <AuthProvider>
-      <ModalProvider>
-          <HeaderProvider>
-            <ProductProvider>
-              <OrderProvider>
-                <ToastContainer closeOnClick autoClose={1000} position="bottom-right"/> 
-                <Layout>
-                  <Component {...pageProps}/>
-                </Layout>
-              </OrderProvider>
-            </ProductProvider>
-          </HeaderProvider>
-      </ModalProvider>
-    </AuthProvider>
-  ) : null
-  
+  return (
+    <>
+      <Head>
+        <title>Diesel Lider</title>
+        <meta name="description" content="Diesel Lider Ecommerce" />
+      </Head>
+      {
+        paginaLista && (
+          <AuthProvider>
+            <ModalProvider>
+                <HeaderProvider>
+                  <ProductProvider>
+                    <OrderProvider>
+                      <ToastContainer closeOnClick autoClose={3000} position="bottom-right"/> 
+                      <Layout>
+                        <Component {...pageProps}/>
+                      </Layout>
+                    </OrderProvider>
+                  </ProductProvider>
+                </HeaderProvider>
+            </ModalProvider>
+          </AuthProvider>
+        )
+      }
+      
+    </>
+  )
         
 }
 

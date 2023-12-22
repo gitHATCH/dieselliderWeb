@@ -8,19 +8,17 @@ import ImageOutlinedIcon from '@mui/icons-material/ImageOutlined';
 import Checkbox from '@mui/material/Checkbox';
 import { useState } from 'react';
 import { useEffect } from 'react';
-import ModalProductData from '../modals/ModalProductData';
+import ModalProductAddedData from '../modals/ModalProductAddedData';
 import { useContext } from 'react';
 import { ModalContext } from '../../hooks/ModalContext';
-import ModalProductView from '../modals/ModalProductView';
 import { OrderContext } from '../../hooks/OrderContext';
-import ModalProductAdd from '../modals/ModalProductAdd';
 //TODO: Modularizar
 //TODO: Eliminar producto del pedido
 //TODO: Agregar grupo checkbox, only 1
 //TODO: Crear modal resumen pedido 
 
 export default function OrderTable() {
-  const {modalProductData,handleModalProductData,modalProductView,handleModalProductView,modalProductAdd,handleModalProductAdd} = useContext(ModalContext);
+  const {modalProductAddedData,handleModalProductAddedData} = useContext(ModalContext);
   const {addProduct,order,checkAlreadyExist,deleteProduct} = useContext(OrderContext)
   const [selected, setSelected] = useState([]);
   const [product, setProduct] = useState(null);
@@ -39,11 +37,11 @@ export default function OrderTable() {
 
   const handleDetailProduct = (product) => {
     setProduct(product)
-    handleModalProductData()
+    handleModalProductAddedData()
   }
 
   const handleRemoveProduct = (code) => {
-    //Eliminar producto del pedido
+    deleteProduct(code)
   }
 
   console.log(order);
@@ -55,7 +53,7 @@ export default function OrderTable() {
         <thead className='sticky top-0 z-1'>
           <tr>
             {titles.map((title,index) => (
-              <th className='tableTitle text-left' key={index}>{title}</th>
+              <th className='tableTitle text-left' key={index}><p className='text-lg'>{title}</p></th>
             ))}
           </tr>
         </thead>
@@ -88,12 +86,9 @@ export default function OrderTable() {
             </tr>
           ))}
         </tbody>
-        <tfoot className='w-full h-2'>
-          <tr></tr>
-        </tfoot>
+    
       </table>
-      {modalProductData && <ModalProductData product = {product}/>}
-      {modalProductView && <ModalProductView product = {product}/>}
+      {modalProductAddedData && <ModalProductAddedData product = {product}/>}
     </div>
     </>
   );

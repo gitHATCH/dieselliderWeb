@@ -4,38 +4,19 @@ import React from 'react'
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 
-const ProductCodeForm = () => {
-
-  const [code, setCode] = useState("");
-  const [checkedDL, setCheckedDL] = useState(false);
-  const [checkedCoincidences, setCheckedCoincidences] = useState(false);
-
-    const handleChangeCode = (event) => {
-        setCode(event.target.value);
-    };
-    const handleChangeCheckedCoincidences = (event) => {
-      setCheckedCoincidences(!checkedCoincidences);
-    };
-    const handleChangeCheckedDL = (event) => {
-      setCheckedDL(!checkedDL);
-    };
-    const handleSearchByCode = (e) => {
-      e.preventDefault()
-      if(!code){
-        toast.error("El código DL o el número de parte es obligatorio")
-      }
-    }
+const ProductCodeForm = ({code, setCode, checkedDL, setCheckedDL, checkedCoincidences, setCheckedCoincidences}) => {
 
   return (
     <div className='w-full flex justify-center'>
-      <form className='w-full' onSubmit={handleSearchByCode}>
+      <div className='w-full'>
         <div className='formInput'>
           <TextField 
             fullWidth 
             id="code" 
             label="Código DL o Número de Parte" 
-            variant="outlined" 
-            onChange={handleChangeCode}
+            variant="outlined"
+            value={code} 
+            onChange={e => setCode(e.target.value)}
           />
         </div>
         
@@ -44,7 +25,7 @@ const ProductCodeForm = () => {
             control={
               <Checkbox 
                 checked={checkedDL}
-                onChange={handleChangeCheckedDL}
+                onChange={() => setCheckedDL(!checkedDL)}
                 inputProps={{ 'aria-label': 'controlled' }}
               />
             } 
@@ -55,7 +36,7 @@ const ProductCodeForm = () => {
             control={
               <Checkbox 
                 checked={checkedCoincidences}
-                onChange={handleChangeCheckedCoincidences}
+                onChange={() => setCheckedCoincidences(!checkedCoincidences)}
                 inputProps={{ 'aria-label': 'controlled' }}
               />
             } 
@@ -63,7 +44,7 @@ const ProductCodeForm = () => {
           />
         </div>
             
-      </form>  
+      </div>  
   </div>
   )
 }

@@ -120,6 +120,25 @@ p,h1,h2,h3,h4,h5,h6 {
   border-start-start-radius: 0.75rem
 }
 
+.modalTableTitle{
+  background-color: var(--secondary);
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+  padding: 0.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-right-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(30 41 59 / var(--tw-border-opacity));
+}
+.modalTableTitle:last-child {
+  border-right-width: 0px;
+  border-top-right-radius: 0.75rem;
+}
+.modalTableTitle:first-child {
+  border-start-start-radius: 0.75rem
+}
+
 .tableContent{
   font-size: 1.rem;
   padding: 0.9rem;
@@ -131,6 +150,20 @@ p,h1,h2,h3,h4,h5,h6 {
   border-color: rgb(30 41 59 / var(--tw-border-opacity));
 }
 .tableContent:last-child{
+  border-right-width: 0px;
+}
+
+.modalTableContent{
+  font-size: 1.rem;
+  padding: 0.5rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  border-right-width: 2px;
+  --tw-border-opacity: 1;
+  border-color: rgb(30 41 59 / var(--tw-border-opacity));
+}
+.modalTableContent:last-child{
   border-right-width: 0px;
 }
 
@@ -178,6 +211,19 @@ a {
   padding: 2px;
   color: #FFF;
   font-weight: 600;
+}
+
+/* CSS */
+.selectStyle {
+  height: 55px;
+  width: 356px;   
+}
+
+/* CSS */
+.menuItemStyle {
+  width: 356px;
+  text-align: left;
+  word-wrap: break-word;
 }
 
 .sk-chase {

@@ -3,25 +3,21 @@ import Checkbox from '@mui/material/Checkbox';
 import React from 'react'
 import { useState } from 'react';
 
-const ProductPartNumberForm = () => {
-  const [brand, setBrand] = useState("");
-  const [format, setFormat] = useState("");
-  const [code, setCode] = useState("");
-
-
-
-    const handleChangeBrand = (event) => {
-        setBrand(event.target.value);
-    };
-    const handleChangeFormat = (event) => {
-      setFormat(event.target.value);
-    };
-    const handleChangeCode = (event) => {
-      setCode(event.target.value);
-  };
-    
+const ProductPartNumberForm = ({brand, setBrand, format, setFormat, number, setNumber}) => {
     const formats = ["fafa","afas"]
     const brands = ["safa","afasfa","afasfa","afa afa","afa"]
+    const [actualFormat, setActualFormat] = useState("")
+    const [actualBrand, setActualBrand] = useState("")
+    
+    const onChangeFormat = (value) => {
+      setActualFormat(value)
+      setFormat(formats[value])
+    }
+
+    const onChangeBrand = (value) => {
+      setActualBrand(value)
+      setBrand(brands[value])
+    }
 
   return (
     <div className='w-full flex justify-center'>
@@ -32,11 +28,11 @@ const ProductPartNumberForm = () => {
             <Select
                 labelId="brand"
                 label="Marca"
-                value={brand}
-                onChange={handleChangeBrand} 
+                value={actualBrand}
+                onChange={e => onChangeBrand(e.target.value)} 
             >
               {brands.map((brand,index) => (
-                <MenuItem value={index}>{brand}</MenuItem>
+                <MenuItem value={index} key={index}>{brand}</MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -48,11 +44,11 @@ const ProductPartNumberForm = () => {
               <Select
                   labelId="format"
                   label="Formato"
-                  value={format}
-                  onChange={handleChangeFormat} 
+                  value={actualFormat}
+                  onChange={e => onChangeFormat(e.target.value)} 
               >
                 {formats.map((format,index) => (
-                  <MenuItem value={index}>{format}</MenuItem>
+                  <MenuItem value={index} key={index}>{format}</MenuItem>
                 ))}
               </Select>
             </FormControl>
@@ -60,10 +56,11 @@ const ProductPartNumberForm = () => {
           <div className='w-2/3 formInput'>
             <TextField 
               fullWidth 
-              id="code" 
+              id="number" 
               label="Número de Parte" 
               variant="outlined" 
-              onChange={handleChangeCode}
+              value={number}
+              onChange={e => setNumber(e.target.value)}
             />
           </div>
           

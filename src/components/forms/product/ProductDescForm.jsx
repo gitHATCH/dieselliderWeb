@@ -4,18 +4,14 @@ import Checkbox from '@mui/material/Checkbox';
 import React from 'react'
 import { useState } from 'react';
 
-const ProductDescForm = () => {
-  const [type, setType] = useState("");
-  const [desc, setDesc] = useState("");
-
-    const handleChangeType = (event) => {
-        setType(event.target.value);
-    };
-    const handleChangeDesc = (event) => {
-      setDesc(event.target.value);
-    };
-    
+const ProductDescForm = ({type, setType, desc, setDesc}) => {
+    const [actualType, setActualType] = useState("")
     const types = ["safa","afasfa","afasfa","afa afa","afa"]
+
+    const onChangeType = (value) => {
+      setActualType(value)
+      setType(types[value])
+    }
 
   return (
     <div className='w-full flex justify-center'>
@@ -26,11 +22,11 @@ const ProductDescForm = () => {
             <Select
                 labelId="type"
                 label="Tipo de Artículo"
-                value={type}
-                onChange={handleChangeType} 
+                value={actualType}
+                onChange={e => onChangeType(e.target.value)} 
             >
               {types.map((type,index) => (
-                <MenuItem value={index}>{type}</MenuItem>
+                <MenuItem value={index} key={index}>{type}</MenuItem>
               ))}
             </Select>
           </FormControl>
@@ -42,17 +38,13 @@ const ProductDescForm = () => {
             id="desc" 
             label="Descripción" 
             variant="outlined" 
-            onChange={handleChangeDesc}
+            value={desc}
+            onChange={e => setDesc(e.target.value)}
           />
         </div>
-          
-                
-      
+
       </div>
-      
-        
-        
-        
+
   </div>
   )
 }

@@ -5,21 +5,21 @@ import { toast } from 'react-toastify';
 
 const ContactForm = () => {
     const [name, setName] = useState("")
-    const [area, setArea] = useState(null)
-    const [cause, setCause] = useState(null)
+    const [area, setArea] = useState("")
+    const [cause, setCause] = useState("")
     const [comment, setComment] = useState("")
 
     const handleChangeName = (event) => {
-        setName(event.target.value);
+        setName(event.target?.value);
     };
     const handleChangeArea = (event) => {
-        setArea(event.target.value);
+        setArea(event.target?.value);
     };
     const handleChangeCause = (event) => {
-        setCause(event.target.value);
+        setCause(event.target?.value);
     };
     const handleChangeComment = (event) => {
-        setComment(event.target.value);
+        setComment(event.target?.value);
     };
 
     const handleSubmit = (e) => {
@@ -57,7 +57,7 @@ const ContactForm = () => {
                     onChange={handleChangeArea} 
                 >
                     {areas.map((area,index) => (
-                    <MenuItem value={index}>{area}</MenuItem>
+                    <MenuItem value={index} key={index}>{area}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>
@@ -72,7 +72,7 @@ const ContactForm = () => {
                     onChange={handleChangeCause} 
                 >
                     {causes.map((cause,index) => (
-                    <MenuItem value={index}>{cause}</MenuItem>
+                    <MenuItem value={index} key={index}>{cause}</MenuItem>
                     ))}
                 </Select>
                 </FormControl>
