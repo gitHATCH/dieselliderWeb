@@ -22,9 +22,11 @@ export default function ProductTable({selectedRows,handleSelectedRows}) {
   const {addProduct,order,checkAlreadyExist,deleteProduct} = useContext(OrderContext)
   const [product, setProduct] = useState(null);
   const [selected, setSelected] = useState(null)
+  console.log(selected);
 
   useEffect(() => {
-    if(selectedRows && selectedRows != [0,selected]){
+    if(selectedRows && selectedRows[0] != 0){
+      console.log("AAAAA");
       setSelected(null)
     }
   }, [selectedRows])
@@ -33,6 +35,7 @@ export default function ProductTable({selectedRows,handleSelectedRows}) {
  
   const handleSelected = (code) => {
     setSelected((prevSelected) => (prevSelected === code ? null : code))
+    console.log(selected);
     handleSelectedRows([0,code])
   }
   

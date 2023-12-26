@@ -24,7 +24,7 @@ export default function OriginalPartsTable({selectedRows,handleSelectedRows}) {
   const [selected, setSelected] = useState(null)
 
   useEffect(() => {
-    if(selectedRows && selectedRows != [1,selected]){
+    if(selectedRows && selectedRows[0] != 1){
       setSelected(null)
     }
   }, [selectedRows])
