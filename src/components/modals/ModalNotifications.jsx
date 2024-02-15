@@ -54,7 +54,7 @@ const ModalNotifications = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 700,
+        // width: 700,
         boxShadow: 24,
         p: 4
       };   
@@ -88,23 +88,21 @@ const ModalNotifications = () => {
         }}
     >
         <Fade in={modalNotifications}>
-            <Box sx={style} className="rounded-xl bg-black">
-                <div className='flex flex-col'>
-                <div className='flex justify-end'>
-                    <CancelIcon className='text-red-600 hover:cursor-pointer hover:text-red-300 absolute' style={{fontSize:25}} onClick={handleModalNotifications}/>
-                </div>
+            <Box sx={style} className="rounded-xl bg-black relative">
+                <CancelIcon className='absolute top-4 right-4 text-red-600 hover:cursor-pointer hover:text-red-300' style={{fontSize:25}} onClick={handleModalNotifications}/>
+
+                <div className='flex flex-col p-4'>
+            
                 <div className='flex-1 flex-col'>
                     <div>
-                        <h1 className='font-mono text-xl tracking-widest text-center font-semibold text-slate-300 p-1'>Seleccione la información que desea recibir</h1>
-                        <p className='text-slate-300 font-mono font-semibold text-sm'>
-                            Recibirá la información en sus cuentas de e-mail asociadas en formato PDF
-                        </p>
+                        <h1 className='font-mono hidden sm:block text-lg tracking-widest text-center font-semibold text-slate-300 p-1'>Seleccione la información que desea recibir</h1>
+                    
                     </div>
                     
                     <div className='flex w-full justify-center'>
-                        <form className='bg-blue mt-10 p-14 rounded-full opacity-80'>
-                            <div className='flex justify-left items-center content-center text-white'>
-                                <Tooltip title="Se ejecuta cada 15 días a las 20:00 hs." placement="right">
+                        <form className='mt-5 p-4 flex flex-col sm:flex-wrap justify-center w-full sm:w-11/12 bg-slate-200 rounded-xl shadow-md shadow-black'>
+                            <div className='flex justify-left items-center content-center'>
+                                <Tooltip title="Se ejecuta cada 15 días a las 20:00 hs." placement="bottom-start">
                                     <FormControlLabel
                                         className='flex items-center justify-center content-center'
                                         control={
@@ -118,8 +116,8 @@ const ModalNotifications = () => {
                                     />
                                 </Tooltip>
                             </div>
-                            <div className='flex justify-left items-center mt-2 text-white'>
-                                <Tooltip title="Se ejecuta cada 15 días a las 8:00 hs." placement="right">
+                            <div className='flex justify-left items-center'>
+                                <Tooltip title="Se ejecuta cada 15 días a las 8:00 hs." placement="bottom-start">
                                     <FormControlLabel
                                         control={
                                             <Checkbox
@@ -131,8 +129,8 @@ const ModalNotifications = () => {
                                     />
                                 </Tooltip>
                             </div>
-                            <div className='flex justify-left items-center mt-2 text-white'>
-                                <Tooltip title="Se ejecuta todos los días a las 3:00 hs." placement="right">
+                            <div className='flex justify-left items-center'>
+                                <Tooltip title="Se ejecuta todos los días a las 3:00 hs." placement="bottom-start">
                                     <FormControlLabel
                                         control={
                                             <Checkbox
@@ -145,8 +143,8 @@ const ModalNotifications = () => {
                                     />
                                 </Tooltip>
                             </div>
-                            <div className='flex justify-left items-center mt-2 text-white'>
-                                <Tooltip title="Se ejecuta todos los lunes a las 8:00 hs." placement="right">
+                            <div className='flex justify-left items-center'>
+                                <Tooltip title="Se ejecuta todos los lunes a las 8:00 hs." placement="bottom-start">
                                     <FormControlLabel
                                         control={
                                             <Checkbox
@@ -159,8 +157,8 @@ const ModalNotifications = () => {
                                     />
                                 </Tooltip>
                             </div>
-                            <div className='flex justify-left items-center mt-2 text-white'>
-                                <Tooltip title="Se ejecuta todos los domingos a las 23:00 hs." placement="right">
+                            <div className='flex justify-left items-center '>
+                                <Tooltip title="Se ejecuta todos los domingos a las 23:00 hs." placement="bottom-start">
                                     <FormControlLabel
                                         control={
                                             <Checkbox
@@ -177,11 +175,17 @@ const ModalNotifications = () => {
                         
                         </form>
                     </div>
-                    <div className='flex justify-between mt-10'>
-                        <button type="button" className="bg-green-800 hover:bg-green-700 rounded-md w-1/4 h-10 text-white font-mono text-lg cursor-pointer" onClick={confirmOption}>
+                    <div className='flex justify-center w-11/12 mt-5'>
+                        <p className='text-slate-300 font-mono font-semibold text-sm'>
+                            La información se enviará por mail en formato PDF
+                        </p>
+                    </div>
+                    
+                    <div className='flex justify-between gap-10 mt-10'>
+                        <button type="button" className="bg-green-800 hover:bg-green-700 rounded-md w-[100px] h-10 text-white font-mono text-lg cursor-pointer" onClick={confirmOption}>
                             Guardar
                         </button>
-                        <button type="button" className="border-2 border-red-900 hover:bg-red-900 rounded-md w-1/4 h-10 text-white font-mono text-lg cursor-pointer" onClick={cancelOption}>
+                        <button type="button" className="border-2 border-red-900 hover:bg-red-900 rounded-md w-[100px] h-10 text-white font-mono text-lg cursor-pointer" onClick={cancelOption}>
                             Cancelar
                         </button>
                     </div>

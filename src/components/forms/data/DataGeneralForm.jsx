@@ -60,130 +60,125 @@ const DataGeneralForm = () => {
     }
 
   return (
-    <form className='w-5/6 rounded-xl shadow-black shadow-md bg-slate-300 p-10'>
-        <div className='flex justify-center'>
-            <div className='formInput w-1/2'>
+    <form className='w-full'>
+        <div className='flex flex-wrap w-full gap-4 items-center justify-center'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
-                    id="business" 
+                    id="business"
+                    className='w-full' 
                     label="Razón Social" 
                     variant="outlined" 
                     onChange={handleChangeBusinessName}
                 />
             </div>
-        </div>
-       
-        <div className='w-full flex flex-row mt-5'>
-            <div className='w-1/10 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="code" 
                     label="Código Postal" 
                     variant="outlined" 
+                    className='w-full' 
                     onChange={handleChangeCode}
                 />
             </div>
-            <div className='ml-2 w-3/10 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="country" 
                     label="País" 
                     variant="outlined" 
+                    className='w-full' 
                     onChange={handleChangeCountry}
                 />
             </div>
-            <div className='ml-2 w-3/10 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="province" 
                     label="Provincia" 
                     variant="outlined" 
+                    className='w-full' 
                     onChange={handleChangeProvince}
                 />
             </div>
-            <div className='ml-2 w-3/10 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="location" 
                     label="Localidad" 
                     variant="outlined" 
+                    className='w-full' 
                     onChange={handleChangeLocation}
                 />
             </div>
-        </div>
-        <div className='w-full flex flex-row mt-5'>
-            <div className='w-1/4 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="tel1" 
                     label="Telefono 1" 
-                    variant="outlined" 
+                    variant="outlined"
+                    className='w-full' 
                     onChange={handleChangeTel1}
                 />
             </div>
-            <div className='ml-2 w-1/4 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="tel2" 
                     label="Telefono 2" 
                     variant="outlined" 
+                    className='w-full' 
                     onChange={handleChangeTel2}
                 />
             </div>
-            <div className='ml-2 w-1/4 formInput'>
+            
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="tel3" 
                     label="Telefono 3" 
                     variant="outlined" 
+                    className='w-full' 
                     onChange={handleChangeTel3}
                 />
             </div>
-            <div className='ml-2 w-1/4 formInput'>
-                <TextField
-                    fullWidth 
-                    id="tel3" 
-                    label="Telefono 3" 
-                    variant="outlined" 
-                    onChange={handleChangeTel3}
-                />
-            </div>
-        </div>
-
-        <div className='w-full flex flex-row mt-5'>
-            <div className='w-1/3 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="cel" 
                     label="Celular" 
+                    className='w-full' 
                     variant="outlined" 
                     onChange={handleChangeCel}
                 />
             </div>
-            <div className='ml-2 w-1/3 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="fax" 
                     label="Fax" 
+                    className='w-full' 
                     variant="outlined" 
                     onChange={handleChangeFax}
                 />
             </div>
-            <div className='ml-2 w-1/3 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="contact" 
                     label="Contacto" 
+                    className='w-full' 
                     variant="outlined" 
                     onChange={handleChangeContact}
                 />
             </div>
         </div>
-        <div className='w-full flex justify-center mt-10'>
-            <button type="button" className="bg-green-800 hover:bg-green-700 rounded-md w-1/2 h-10 text-white font-mono text-lg cursor-pointer" onClick={handleSubmitSave}>
+       
+        <div className='w-full flex justify-center mt-5'>
+            <button type="button" className="bg-green-800 max-w-[300px] hover:bg-green-700 rounded-md w-1/2 h-10 text-white font-mono text-lg cursor-pointer" onClick={handleSubmitSave}>
                 GUARDAR
             </button>
-           
         </div>
     </form>
   )

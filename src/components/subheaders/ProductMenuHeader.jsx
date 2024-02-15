@@ -23,8 +23,8 @@ export default function ProductMenuHeader() {
   return (
     <div className='2xl:flex 2xl:mt-0'>
       <div className='menuHeader 2xl:rounded-b-3xl 2xl:px-20 2xl:shadow-lg 2xl:shadow-black 2xl:border-t-8 2xl:border-black flex-grow flex items-center'>
-        <div style={{ flex: '5' }}>
-          <Menu pointing secondary>
+        <div>
+          <Menu pointing secondary> 
             {menuItems.map((item) => (
               <Menu.Item
                 key={item.name}
@@ -36,7 +36,7 @@ export default function ProductMenuHeader() {
                   borderBottom: page === item.path ? '2px solid #262626' : '2px solid transparent',
                 }}
                 
-                className='2xl:text-3xl'
+                className='2xl:text-3xl text-sm sm:text-base'
               />
             ))}
           </Menu>

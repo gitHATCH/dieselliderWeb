@@ -4,8 +4,13 @@ import Link from 'next/link';
 
 const ShoppingCartBtn = () => {
   return (
-    <button className='uppercase md:mr-10 2xl:mr-20 font-semibold btnMenu'>
-        <div className='2xl:hidden'>
+    <button className='uppercase md:mr-5 2xl:mr-20 font-semibold btnMenu'>
+        <div className='sm:hidden'>
+            <Link href={"/pedido"}>
+                <ShoppingCartIcon style={{fontSize:25}}/>
+            </Link>
+        </div>
+        <div className='hidden sm:block 2xl:hidden'>
             <Link href={"/pedido"}>
                 <ShoppingCartIcon style={{fontSize:30}}/>
             </Link>

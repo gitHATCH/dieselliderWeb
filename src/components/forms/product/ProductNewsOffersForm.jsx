@@ -23,7 +23,7 @@ const ProductNewsOffersForm = ({type,setType,brand,setBrand,desc,setDesc}) => {
       <div className='w-full flex justify-center'>
         <div className='w-full'>
           
-          <div className='flex justify-between w-full'>
+          <div className='flex flex-col gap-5 sm:gap-0 sm:flex-row sm:justify-between w-full'>
             <div className='formInput mr-5 w-full'>
                 <FormControl fullWidth>
                 <InputLabel id="type">Tipo de Producto</InputLabel>

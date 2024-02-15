@@ -28,7 +28,7 @@ export default function DataMenuHeader({option,change}) {
                   color: option === item.path ? '#79ae92' : 'white',
                   borderBottom: option === item.path ? '2px solid #262626' : '2px solid transparent',
                 }}
-                className='2xl:text-3xl'
+                className='2xl:text-3xl text-sm sm:text-base'
               />
             ))}
           </Menu>

@@ -28,7 +28,7 @@ const ProductPirceForm = ({section, setSection, group, setGroup, subgroup, setSu
       <div className='w-full flex justify-center'>
         <div className='w-full'>
           
-          <div className='flex justify-between w-full'>
+          <div className='flex justify-center gap-y-5 flex-col sm:flex-row sm:justify-between w-full'>
             <div className='formInput mr-5 w-full'>
                 <FormControl fullWidth>
                 <InputLabel id="type">Sección</InputLabel>

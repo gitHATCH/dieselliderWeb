@@ -14,29 +14,36 @@ import { ModalContext } from '../../hooks/ModalContext';
 import ModalProductView from '../modals/ModalProductView';
 import { OrderContext } from '../../hooks/OrderContext';
 import ModalProductAdd from '../modals/ModalProductAdd';
+import LibraryAddCheckOutlinedIcon from '@mui/icons-material/LibraryAddCheckOutlined';
 //TODO: Modularizar
 //TODO: Select debe desaparecer si se selecciona un producto de otra tabla
 
-export default function ProductTable({selectedRows,handleSelectedRows}) {
+export default function ProductTable({selectedRows,handleSelectedRows,relationship}) {
   const {modalProductData,handleModalProductData,modalProductView,handleModalProductView,modalProductAdd,handleModalProductAdd} = useContext(ModalContext);
   const {addProduct,order,checkAlreadyExist,deleteProduct} = useContext(OrderContext)
   const [product, setProduct] = useState(null);
   const [selected, setSelected] = useState(null)
-  console.log(selected);
+  
 
   useEffect(() => {
     if(selectedRows && selectedRows[0] != 0){
-      console.log("AAAAA");
       setSelected(null)
     }
   }, [selectedRows])
   
-  const titles = ["","Código DL","Descripción","Marca","Precio","Descuento","Precio Neto", "Stock", "Detalles"]
+  const titles = relationship ? ["Código DL","Descripción","Marca","Precio","Descuento","Precio Neto", "Stock", "Detalles"] : ["","Código DL","Descripción","Marca","Precio","Descuento","Precio Neto", "Stock", "Detalles"]
  
   const handleSelected = (code) => {
-    setSelected((prevSelected) => (prevSelected === code ? null : code))
-    console.log(selected);
-    handleSelectedRows([0,code])
+    if(!relationship){
+      setSelected((prevSelected) => (prevSelected === code ? null : code))
+      selectedRows && selectedRows[0] === 0 && selectedRows[1] === code ? handleSelectedRows(null) : handleSelectedRows([0,code])
+    }
+  }
+  const handleSelectProduct = (product) => {
+    //TODO: Actualizar producto actual
+    //TODO: Actualizar producto ProductTable
+    //TODO: Actualizar producto OriginalPartsTable
+    handleSelectedRows([3,null])
   }
   
   const handleDetailProduct = (product) => {
@@ -70,17 +77,19 @@ export default function ProductTable({selectedRows,handleSelectedRows}) {
             <tr key={index} className={`p-2 ${selected == index ? "bg-orange-200" : index % 2 ? "bg-slate-300 hover:bg-cyan-600 hover:bg-opacity-20" : "bg-slate-400 hover:bg-cyan-600 hover:bg-opacity-20"} bg-green-800`}
               onClick={() => handleSelected(index)}
             >
-              <td className='tableContent max-w-xs'>
-              <input
-                type='checkbox'
-                key={index}
-                id={`product-checkbox-${index}`}
-                className='w-5 h-5'
-                checked={selected === index}
-                onChange={() => handleSelected(index)}
-              />
-                
-              </td>
+              {!relationship && (
+                <td className='tableContent max-w-xs'>
+                  <input
+                    type='checkbox'
+                    key={index}
+                    id={`product-checkbox-${index}`}
+                    className='w-5 h-5'
+                    checked={selected === index}
+                    onChange={() => handleSelected(index)}
+                  />
+                </td>
+              )}
+             
               <td className='tableContent max-w-xs'>{row.code}</td>
               <td className='tableContent max-w-sm'>{row.descr}</td>
               <td className='tableContent max-w-xs'>{row.brand}</td>
@@ -109,18 +118,30 @@ export default function ProductTable({selectedRows,handleSelectedRows}) {
                 >
                   <ImageOutlinedIcon style={{fontSize:24}}/>
                 </button>
-                <button className={`ml-2 ${checkAlreadyExist(row.code) ? "bg-red-700 hover:bg-red-600 " : "bg-green-700 hover:bg-green-600"} rounded-full p-2 shadow-black shadow-sm flex items-center justify-center`}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleAddProduct(row);
-                  }}
-                >
-                  {checkAlreadyExist(row.code) ? (
-                    <RemoveShoppingCartOutlinedIcon style={{fontSize:24}}/>
-                  ) : (
-                    <AddShoppingCartIcon style={{fontSize:24}}/>
-                  )}
-                </button>
+                {relationship ? (
+                  <button className={`ml-2 ${checkAlreadyExist(row.code) ? "bg-red-700 hover:bg-red-600 " : "bg-green-700 hover:bg-green-600"} rounded-full p-2 shadow-black shadow-sm flex items-center justify-center`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleSelectProduct(row);
+                    }}
+                  >
+                    <LibraryAddCheckOutlinedIcon style={{fontSize:24}}/>
+                  </button>
+                ) : (
+                  <button className={`ml-2 ${checkAlreadyExist(row.code) ? "bg-red-700 hover:bg-red-600 " : "bg-green-700 hover:bg-green-600"} rounded-full p-2 shadow-black shadow-sm flex items-center justify-center`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAddProduct(row);
+                    }}
+                  >
+                    {checkAlreadyExist(row.code) ? (
+                      <RemoveShoppingCartOutlinedIcon style={{fontSize:24}}/>
+                    ) : (
+                      <AddShoppingCartIcon style={{fontSize:24}}/>
+                    )}
+                  </button>
+                )}
+               
               </td>
             </tr>
           ))}

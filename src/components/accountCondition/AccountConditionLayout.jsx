@@ -83,11 +83,11 @@ const AccountConditionLayout = () => {
 
   return (
     <div className='w-full flex justify-center flex-col'>
-        <div className='flex justify-center mt-10'>
-            <div className='w-4/5 bg-slate-300 p-5 rounded-xl shadow-md shadow-black'>
-                    <div className={`${!showMore ? "flex justify-between" : "flex-col"} items-center `}>
+        <div className='flex justify-center sm:mt-10 mb-20'>
+            <div className='p-5 w-4/5 mt-5 sm:mt-10 bg-slate-200 rounded-xl shadow-md shadow-black'>            
+                <form id='accountConditionForm' onSubmit={(e) => handleSubmit(e)} className={`${!showMore ? "flex flex-col lg:flex-row lg:justify-between" : "flex-col"} items-center `}>
                         {!showMore ? (
-                            <div className='w-full'>
+                            <div className='w-full mb-5 lg:mb-0'>
                                 <AccountConditionSimpleForm  voucher={voucher} period={period} handleChangeVoucher={handleChangeVoucher} handleChangePeriod={handleChangePeriod} vouchers={vouchers} periods={periods}/>
                             </div>
                         ) : (
@@ -111,24 +111,24 @@ const AccountConditionLayout = () => {
                             />
                         )}
 
-                        <div className={`flex h-16 ${showMore && "justify-end"}`}>
-                            <div className='flex items-center w-72'>
-                                <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 rounded-r-none w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
-                                    BUSCAR
-                                </button>
-                            </div>
-                            <div className='flex items-center ml-0'>
-                                <button type="button" className="bg-blue-900 hover:bg-blue-800 rounded-md h-4/5 rounded-l-none w-full text-white font-mono text-lg cursor-pointer uppercase" onClick={handleChangeShowMore}>
-                                    {!showMore ? (
-                                        <ExpandMoreIcon style={{fontSize:30}}/>
-                                    ) : (
-                                        <ExpandLessIcon style={{fontSize:30}}/>
-                                    )}
-                                </button>
-                            </div>
+                    <div className={`flex w-full justify-center md:justify-end h-14 ${showMore && "justify-end mt-5"}`}>
+                        <div className='flex items-center max-w-[220px] 2xl:w-72 w-full'>
+                            <button type="submit" className="bg-blue-700 hover:bg-blue-800 rounded-md h-full rounded-r-none w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
+                                BUSCAR
+                            </button>
                         </div>
-                        
+                        <div className='flex items-center ml-0'>
+                            <button type="button" className="bg-blue-900 hover:bg-blue-800 rounded-md h-full rounded-l-none w-full text-white font-mono text-lg cursor-pointer uppercase" onClick={handleChangeShowMore}>
+                                {!showMore ? (
+                                    <ExpandMoreIcon style={{fontSize:30}}/>
+                                ) : (
+                                    <ExpandLessIcon style={{fontSize:30}}/>
+                                )}
+                            </button>
+                        </div>
                     </div>
+                        
+                    </form>
                     
             </div>
         </div>

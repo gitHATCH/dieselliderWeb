@@ -33,7 +33,7 @@ export default function OriginalPartsTable({selectedRows,handleSelectedRows}) {
  
   const handleSelected = (code) => {
     setSelected((prevSelected) => (prevSelected === code ? null : code))
-    handleSelectedRows([1,code])
+    selectedRows && selectedRows[0] === 1 && selectedRows[1] === code ? handleSelectedRows(null) : handleSelectedRows([1,code])
 
   }
 

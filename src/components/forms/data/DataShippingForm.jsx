@@ -1,14 +1,8 @@
 import React, { useState } from 'react'
 import CustomerAddressCard from '../../cards/CustomerAddressCard'
-import { TextField } from '@mui/material'
+import { FormControl, InputLabel, MenuItem, Select, TextField } from '@mui/material'
 
 const DataShippingForm = () => {
-  const [actualCard, setActualCard] = useState(0)
-
-  const handleChangeActualCard = (index) => {
-    setActualCard(index)
-  }
-
   const data = [{
     receiver:"CONSUMIDOR FINAL",
     address:"AV. JUAN B. JUSTO 2224 (CASO1)",
@@ -44,9 +38,20 @@ const DataShippingForm = () => {
     payment:"ORIGEN"
   }]
 
+  const [actualCard, setActualCard] = useState(0)
+  const [actualAddress, setActualAddress] = useState("")
+
+  const handleChangeActualCard = (index) => {
+    setActualCard(index)
+    setActualAddress(data[index].address)
+  }
+
+  // console.log(actualCard.address);
+  console.log(actualAddress);
+
   return (
-    <div className='w-full flex justify-between gap-10'>
-      <div className='w-2/5'>
+    <div className='w-full flex flex-col md:flex-row md:justify-between gap-5'>
+      <div className='w-2/5 hidden md:block'>
         {data.map((item,index) => (
           <div key={index} className={`${actualCard == index ? "bg-slate-300 border-4 border-orange-700" : "bg-slate-400 hover:bg-slate-300 border-4 border-transparent hover:border-orange-700"} w-full rounded-xl p-4 shadow-md shadow-black mb-5 cursor-pointer`}
             onClick={()=>handleChangeActualCard(index)}
@@ -54,10 +59,33 @@ const DataShippingForm = () => {
             <CustomerAddressCard item={item}/>
           </div>
         ))}
-
       </div>
-      <div className='w-3/5 rounded-xl shadow-black shadow-md bg-slate-300 p-10'>
-        <div className='w-1/2 formInput'>
+      <div className='w-full md:hidden flex justify-center'>
+        <div className={`formInput w-full`}>
+              <FormControl fullWidth>
+              <InputLabel id="addressess">Direcciones</InputLabel>
+              <Select
+                  labelId="addressess"
+                  label="Direcciones"
+                  fullWidth
+                  required
+                  value={actualAddress}
+                  onChange={(e) => handleChangeActualCard(e.target.value)}
+                  name='addressess'
+                  className='h-14'
+              >
+                  {data.map((item,index) => (
+                    <MenuItem value={index} key={index}>
+                       {item.address.length > 30 ? item.address.substring(0, 30) + "..." : item.address}
+                    </MenuItem>
+                  ))}
+              </Select>
+              </FormControl>
+          </div>
+      </div>
+
+      <div className='w-full'>
+        <div className='w-full'>
           <TextField
               fullWidth 
               id="receiver" 

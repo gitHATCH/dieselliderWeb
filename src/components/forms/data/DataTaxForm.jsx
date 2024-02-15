@@ -20,10 +20,9 @@ const DataTaxForm = () => {
   const [iibb, setIibb] = useState(data.iibb)
   
   return (
-    <form className='w-4/5 rounded-xl shadow-black shadow-md bg-slate-300 p-10'>
-        
-      <div className='w-full flex flex-row'>
-            <div className='w-1/2 formInput'>
+    <form className='w-full'>
+        <div className='flex flex-wrap w-full gap-4 items-center justify-center'>
+        <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="type" 
@@ -33,7 +32,7 @@ const DataTaxForm = () => {
                     disabled
                 />
             </div>
-            <div className='ml-5 w-1/2 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="ide" 
@@ -43,9 +42,7 @@ const DataTaxForm = () => {
                     disabled
                 />
             </div>
-        </div>
-        <div className='w-full flex flex-row mt-10'>
-            <div className='w-1/2 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="condition" 
@@ -55,7 +52,7 @@ const DataTaxForm = () => {
                     disabled
                 />
             </div>
-            <div className='ml-5 w-1/2 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="ide" 
@@ -65,9 +62,7 @@ const DataTaxForm = () => {
                     disabled
                 />
             </div>
-        </div>
-        <div className='w-full flex flex-row mt-10'>
-            <div className='w-1/2 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="income" 
@@ -77,7 +72,7 @@ const DataTaxForm = () => {
                     disabled
                 />
             </div>
-            <div className='ml-5 w-1/2 formInput'>
+            <div className='min-w-[190px] w-[235px] max-2-[400px]'>
                 <TextField
                     fullWidth 
                     id="iibb" 
@@ -88,6 +83,7 @@ const DataTaxForm = () => {
                 />
             </div>
         </div>
+     
     </form>
   )
 }

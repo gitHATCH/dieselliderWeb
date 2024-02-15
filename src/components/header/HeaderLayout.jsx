@@ -32,7 +32,7 @@ const HeaderLayout = () => {
                                 <div className='flex items-center w-full'>
                                     <HeaderLogo/>
                                     <MenuBtn/>
-                                    <div className='justify-end flex flex-row'>
+                                    <div className='w-full sm:w-fit flex justify-end sm:justify-between gap-5 md:gap-2'>
                                         <ShoppingCartBtn/>
                                         <UserOptionsBtn/>
                                     </div>

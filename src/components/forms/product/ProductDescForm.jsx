@@ -1,5 +1,5 @@
 
-import { FormControl, FormControlLabel, InputLabel, MenuItem, Select, TextField } from '@mui/material'
+import { FormControl, FormControlLabel, InputLabel, MenuItem, Select, TextField, TextareaAutosize } from '@mui/material'
 import Checkbox from '@mui/material/Checkbox';
 import React from 'react'
 import { useState } from 'react';
@@ -31,8 +31,18 @@ const ProductDescForm = ({type, setType, desc, setDesc}) => {
             </Select>
           </FormControl>
         </div>
-     
         <div className='formInput mt-5'>
+            <TextareaAutosize
+                className='w-full text-md font-medium p-4 rounded-md bg-slate-200 shadow-sm shadow-black hover:border-2 hover:border-slate-700 focus:border-0 placeholder:text-slate-600 placeholder:font-normal placeholder:text-md'
+                minRows={3}
+                maxRows={10}
+                aria-label="maximum height"
+                placeholder="Descripción..."
+                defaultValue={desc}
+                onChange={e => setDesc(e.target.value)}
+            />
+        </div>
+        {/* <div className='formInput mt-5'>
           <TextField 
             fullWidth 
             id="desc" 
@@ -41,7 +51,7 @@ const ProductDescForm = ({type, setType, desc, setDesc}) => {
             value={desc}
             onChange={e => setDesc(e.target.value)}
           />
-        </div>
+        </div> */}
 
       </div>
 

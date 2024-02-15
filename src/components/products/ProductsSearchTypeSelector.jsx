@@ -60,13 +60,19 @@ export default function ProductsSearchTypeSelector() {
       }
     }, [typeSearch])
     
+    const handleSelectProduct = (product) => {
 
+    }
 
     const handleChangeType = (event) => {
         setTypeSearch(event.target.value);
     };
 
     const handleRelationships = () => {
+        if(!selectedRow){
+            toast.error("Seleccione un producto")
+            return
+        }
         setLoadingRelations(true)
         setTimeout(() => {
             setLoadingRelations(false)
@@ -112,6 +118,7 @@ export default function ProductsSearchTypeSelector() {
     const handleHideDisabled = () => {
         console.log("Ocultando")
     }
+    console.log(selectedRow);
 
     const handleChangeMenuOption = (option) => {
         setMenuOption(option)
@@ -119,12 +126,12 @@ export default function ProductsSearchTypeSelector() {
 
   return (
     <div className='flex-col justify-center w-full'>
-        <div className='flex justify-center'>
-            <div className='flex justify-center w-4/5 mt-20 bg-slate-200 rounded-xl shadow-md shadow-black'>
+        <div className='flex justify-center '>
+            <div className='flex justify-center w-11/12 sm:w-4/5 mt-5 sm:mt-20 bg-slate-200 rounded-xl shadow-md shadow-black'>
                 <div className='md:mt-0 2xl:mt-20 w-full p-5'>
-                    <div className='flex justify-center flex-col'>
-                        <div className='flex flex-row w-full'>
-                            <div className='formInput mb-10 w-2/3'>
+                    <div className='flex justify-center flex-col md:flex-col md:justify-between'>
+                        <div className='flex justify-normal flex-col md:flex-row md:justify-between w-full'>
+                            <div className='formInput md:mb-10 md:w-2/3 w-full flex justify-center mt-5'>
                                 <FormControl>
                                 <FormLabel id="demo-controlled-radio-buttons-group">Tipo de Búsqueda</FormLabel>
                                 <RadioGroup
@@ -146,7 +153,7 @@ export default function ProductsSearchTypeSelector() {
                             </div>
                         </div>
                         <div className='flex justify-center'>
-                            <div className='flex items-center w-1/2 h-14 mt-5'>
+                            <div className='flex items-center w-1/2 min-w-[180px] h-14 mt-5'>
                                 <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
                                     BUSCAR
                                 </button>
@@ -208,7 +215,7 @@ export default function ProductsSearchTypeSelector() {
                             <RelationshipsMenu option={menuOption} change={handleChangeMenuOption} selectedRows={selectedRow} handleSelectedRows={setSelectedRow}/>
                         </div>
                         <div className='mt-0 w-fit'>
-                            <ProductTable/>
+                            <ProductTable handleSelectedRows={setSelectedRow} relationship = {true}/>
                         </div>
                         <div className='mt-2'>
                             <h3 className='text-orange-700'>

@@ -9,7 +9,7 @@ const ProductCodeForm = ({code, setCode, checkedDL, setCheckedDL, checkedCoincid
   return (
     <div className='w-full flex justify-center'>
       <div className='w-full'>
-        <div className='formInput'>
+        <div className='formInput mb-2'>
           <TextField 
             fullWidth 
             id="code" 
@@ -20,7 +20,7 @@ const ProductCodeForm = ({code, setCode, checkedDL, setCheckedDL, checkedCoincid
           />
         </div>
         
-        <div className='flex flex-row justify-between'>
+        <div className='flex flex-col sm:flex-row sm:justify-between'>
           <FormControlLabel 
             control={
               <Checkbox 
@@ -29,7 +29,7 @@ const ProductCodeForm = ({code, setCode, checkedDL, setCheckedDL, checkedCoincid
                 inputProps={{ 'aria-label': 'controlled' }}
               />
             } 
-            label="Solo Códigos DL" 
+            label="Solo Códigos DL"
           />
           
           <FormControlLabel 

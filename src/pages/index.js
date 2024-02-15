@@ -11,7 +11,7 @@ export default function Home() {
     <>
       {!loading && (
         !auth ? <LoginLayout/> : (
-          <div className=''>
+          <div className='mb-20'>
             <Products/>
           </div>
         )

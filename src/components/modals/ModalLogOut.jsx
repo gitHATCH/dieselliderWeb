@@ -29,7 +29,7 @@ const ModalLogOut = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        // width: 400,
         boxShadow: 24,
         p: 4,
       };    
@@ -62,25 +62,26 @@ const ModalLogOut = () => {
         }}
     >
         <Fade in={modalLogOut}>
-            <Box sx={style} className="rounded-xl bg-black">
-                <div className='flex'>
+            <Box sx={style} className="rounded-xl bg-black relative w-fit">
+                <div className='flex p-4'>
                 <div className='flex-1 flex-col'>
-                    <Typography id="transition-modal-title" className='text-slate-300 font-mono font-semibold' variant="h6" component="h2">
+                    <Typography id="transition-modal-title" className='text-slate-300 font-mono font-semibold' variant="h6" component="h2"  style={{ whiteSpace: 'nowrap' }}>
                         ¿Deseas Cerrar Sesión?
                     </Typography>
-                    <div className='flex justify-between mt-10'>
-                        <button type="button" className="bg-green-800 hover:bg-green-700 rounded-md w-1/4 h-10 text-white font-mono text-lg cursor-pointer" onClick={confirmOption}>
+                    <div className='flex justify-between gap-10 mt-10'>
+                        <button type="button" className="bg-green-800 hover:bg-green-700 rounded-md w-[100px] h-10 text-white font-mono text-lg cursor-pointer" onClick={confirmOption}>
                             Si
                         </button>
-                        <button type="button" className="border-2 border-red-900 hover:bg-red-900 rounded-md w-1/4 h-10 text-white font-mono text-lg cursor-pointer" onClick={cancelOption}>
+                        <button type="button" className="border-2 border-red-900 hover:bg-red-900 rounded-md w-[100px] h-10 text-white font-mono text-lg cursor-pointer" onClick={cancelOption}>
                             No
                         </button>
                     </div>
                 </div>
                 <div className=''>
-                    <CancelIcon className='text-red-700 hover:cursor-pointer hover:text-red-500' onClick={handleModalLogOut} style={{fontSize:25}}/>
                 </div>
                 </div>
+                <CancelIcon className='absolute top-2 right-2 text-red-700 hover:cursor-pointer hover:text-red-500' onClick={handleModalLogOut} style={{fontSize:25}}/>
+
             </Box>
         </Fade>
     </Modal>

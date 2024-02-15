@@ -89,8 +89,8 @@ const ContactForm = () => {
             />
           </div>
           <div className='flex justify-center'>
-            <div className='flex items-center w-80 h-14 mt-5'>
-                <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
+            <div className='flex items-center w-80 h-14 mt-5 justify-center'>
+                <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-4/5 text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
                     ENVIAR
                 </button>
             </div>

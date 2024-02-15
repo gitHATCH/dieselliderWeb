@@ -54,7 +54,7 @@ return (
                             </div>
                         </div>
                         <div className='flex justify-center'>
-                            <div className='flex items-center w-1/2 h-14 mt-5'>
+                            <div className='flex items-center w-1/2 min-w-[180px] h-14 mt-5'>
                                 <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleSubmit}>
                                     BUSCAR
                                 </button>

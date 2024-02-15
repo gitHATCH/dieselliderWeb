@@ -16,6 +16,8 @@ import { OrderContext } from '../../hooks/OrderContext';
 import { useRouter } from 'next/router';
 import SubTotal from '../order/SubTotal';
 import MyOrderTable from '../tables/MyOrderTable';
+import PrintOutlinedIcon from '@mui/icons-material/PrintOutlined';
+
 
 const ModalMyOrdersData = ({myOrder}) => {
     const {modalMyOrdersData,handleModalMyOrdersData} = useContext(ModalContext);
@@ -47,6 +49,10 @@ const ModalMyOrdersData = ({myOrder}) => {
     const handleCancel = () => {
         handleModalMyOrdersData()
     }
+
+    const handlePrint = () => {
+        console.log("Imprimir");
+    }
       
   return (
     <ThemeProvider theme={theme}>
@@ -73,7 +79,12 @@ const ModalMyOrdersData = ({myOrder}) => {
                     <div className='flex justify-between mt-5'>
                         
                         <div className='w-full px-4'>
-                            <div className='w-full bg-slate-400 rounded-md shadow-sm shadow-black p-2 flex justify-between'>
+                            <div className='flex justify-end'>
+                                <button className='w-auto p-2 px-4 bg-blue-900 hover:bg-blue-700 h-auto rounded-xl' onClick={handlePrint}>
+                                    <PrintOutlinedIcon style={{color:"white", fontSize:20}}/>
+                                </button>
+                            </div>
+                            <div className='mt-4 w-full bg-slate-400 rounded-md shadow-sm shadow-black p-2 flex justify-between'>
                                 <div className='w-full'>
                                     <p className='text-lg font-semibold'>Número de Pedido:<span className='ml-2 font-normal text-base'>{myOrder.number}</span></p>
                                     <p className='text-lg font-semibold'>Fecha del Pedido: <span className='ml-2 font-normal text-base'>{myOrder.date}</span></p>

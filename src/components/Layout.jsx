@@ -10,11 +10,14 @@ import { ProductProvider } from '../hooks/ProductContext';
 import { ClientProvider } from '../hooks/ClientContext';
 import { OrderProvider } from '../hooks/OrderContext';
 import { AuthContext } from '../hooks/AuthContext';
+import StoreIcon from '@mui/icons-material/Store';
+import HeaderMobile from './header/HeaderMobile';
 
 
 const Layout = ({children}) => {
   const {collaps} = useContext(HeaderContext)
   const {auth, loading} = useContext(AuthContext);
+
   return (
     <>
       {!loading && (
@@ -25,11 +28,10 @@ const Layout = ({children}) => {
                   <HeaderLayout/>
                 </div>
               )}
-              <div className={`w-full h-full overflow-y-auto`}>
+              <div className={`w-full mb-10 sm:mb-0 h-full overflow-y-auto`}>
                 {children}
-                
               </div>
-              
+              <HeaderMobile/>
             </div>  
           </>
       )}

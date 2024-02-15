@@ -62,33 +62,36 @@ const Pedido = () => {
             </div>
           )
         )}
-        </div>
-        <div className='w-full flex justify-center'>
+      </div>
+      {order?.length > 0 && (
+        <>
+          <div className='w-full flex justify-center'>
+            <div className='mt-10 flex w-5/6 flex-row bg-slate-300 rounded-xl shadow-md shadow-black p-10'>
+              <div className='w-1/2'>
+                  <OrderForm/>
+              </div>
 
-        
-      <div className='mt-10 flex w-5/6 flex-row bg-slate-300 rounded-xl shadow-md shadow-black p-10'>
-        <div className='w-1/2'>
-            <OrderForm/>
-        </div>
-        
-        <div className='w-1/2 '>
-            <SubTotal/>
-        </div>
-      </div>
-      </div>
-      <div className='w-full flex justify-center mb-20'>
-        <div className='w-5/6'>
-          <div className='flex items-center w-1/3 h-14 mt-5'>
-              <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleContinue}>
-                  Continuar Comprando
-              </button>
+              <div className='w-1/2 '>
+                  <SubTotal/>
+              </div>
+            </div>
           </div>
-          <div className='flex 2xl:mt-2 px-1 mt-2'>
-            <p className='forgot text-lg 2xl:text-lg font-medium opacity-80 cursor-pointer text-black' onClick={handleDiscard}>Descartar Pedido Actual</p>
+          <div className='w-full flex justify-center mb-20'>
+            <div className='w-5/6'>
+              <div className='flex items-center w-1/3 h-14 mt-5'>
+                  <button type="button" className="bg-blue-700 hover:bg-blue-800 rounded-md h-4/5 w-full text-white font-mono text-lg cursor-pointer uppercase py-2" onClick={handleContinue}>
+                      Continuar Comprando
+                  </button>
+              </div>
+              <div className='flex 2xl:mt-2 px-1 mt-2'>
+                <p className='forgot text-lg 2xl:text-lg font-medium opacity-80 cursor-pointer text-black' onClick={handleDiscard}>Descartar Pedido Actual</p>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-            {modalVerify && <ModalVerify/>}
+        </>
+
+      )}
+      {modalVerify && <ModalVerify/>}
     </div>
   )
 }
